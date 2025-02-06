@@ -1,5 +1,6 @@
 NAME = test
-SRCS = main.c
+SRCS = main.c \
+	my_mlx_pixel_put.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./includes -I./libmlx
 CC = cc
