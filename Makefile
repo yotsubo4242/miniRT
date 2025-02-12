@@ -9,15 +9,12 @@ CFLAGS := -Wall -Wextra -Werror
 
 RELEASE_FLAGS := -O3
 DEBUG_FLAGS := -ggdb3 -O0 -fsanitize=address
-INCLUDES := -Iinclude -Isrc -Ilibft/include
-
-CC := cc
-CFLAGS := -Wall -Wextra -Werror -g #-fsanitize=address
+INCLUDES := -Iinclude -Isrc -Ilibft/includes
 
 LDFLAGS := -Llibft
 LDLIBS := -lft
 
-SRC := *.c
+SRC := $(shell find $(SRC_DIR) -name '*.c')
 OBJ := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 all: CFLAGS+=$(RELEASE_FLAGS)
@@ -26,8 +23,8 @@ all : $(NAME)
 debug: CFLAGS+=$(DEBUG_FLAGS)
 debug: $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LDLIBS) $(LDFLAGS) -o $@ $^
+$(NAME) : $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	mkdir -p $(@D)
@@ -38,7 +35,7 @@ $(LIBFT):
 
 clean :
 	make -C libft clean
-	$(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean : clean
 	make -C libft fclean
