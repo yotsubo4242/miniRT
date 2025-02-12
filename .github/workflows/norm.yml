@@ -3,6 +3,14 @@ name: Norminette
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - ".github/workflows/**"
+  pull_request:
     paths:
       - "libft/**"
       - "src/**"
