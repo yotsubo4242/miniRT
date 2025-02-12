@@ -35,7 +35,7 @@ $(LIBFT):
 
 clean :
 	make -C libft clean
-	$(RM) $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean : clean
 	make -C libft fclean

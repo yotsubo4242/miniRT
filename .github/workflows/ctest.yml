@@ -25,7 +25,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: sudo apt-get install cmake
-      - name: Build
-        run: cmake -S . -B build && cmake --build build
-      - name: Run CTest
-        run: cmake --build build --target test
+      - name: Cmake, make makefile in build
+        run: cmake -S . -B build 
+      - name: Build, run make command in build dir
+        run: --build build
+      - name: Test, run CTest
+        run: ctest --test-dir build
