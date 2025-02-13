@@ -6,3 +6,4 @@ miniRT
 Testing/
 .cache/
 *.log
+.vscode
