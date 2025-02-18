@@ -3,6 +3,7 @@ SRCS = main.c \
 	./src/my_mlx_pixel_put.c \
 	./src/dot.c \
 	./src/convert_color_to_hex.c \
+	./src/normalize.c \
 	./src/mag.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./includes -I./libmlx

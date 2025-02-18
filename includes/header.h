@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 14:14:04 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:35:53 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		dot(t_vec3 a, t_vec3 b);
 double	mag(t_vec3 a);
 int		convert_color_to_hex(t_color color);
+t_vec3	normalize(t_vec3 a);
 
 #endif
