@@ -4,6 +4,8 @@ SRCS = main.c \
 	./src/dot.c \
 	./src/convert_color_to_hex.c \
 	./src/normalize.c \
+	./src/vec_minus.c \
+	./src/caluculate_color.c \
 	./src/mag.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./includes -I./libmlx

@@ -6,24 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 14:32:37 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:42:16 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-#define WIDTH 1000
-#define HEIGHT 1000
-#define OBSRV_X 0
-#define OBSRV_Y 0
-#define OBSRV_Z -2500
-#define SPHERE_X 0
-#define SPHERE_Y 0
-#define SPHERE_Z 2500
-#define SPHERE_RADIUS 500
-#define LIGHT_X -2500
-#define LIGHT_Y 2500
-#define LIGHT_Z -2500
 
 int	my_exit(int keycode, void *param)
 {
@@ -56,9 +43,9 @@ int main(void)
 	sphare_color.g = 0;
 	sphare_color.b = 0;
 	// シーンの色
-	scene_color.r = 100;
-	scene_color.g = 149;
-	scene_color.b = 237;
+	scene_color.r = 255;
+	scene_color.g = 255;
+	scene_color.b = 255;
 	// mlxの初期化
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Hello World!");
@@ -88,7 +75,8 @@ int main(void)
 			if (D < 0)
 				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(scene_color));
 			else
-				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
+				caluculate_color(&data, x, y, D, a, b, obs, sphere, sphare_color, ray);
+				//my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
 		}
 	}
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img, 0, 0);
