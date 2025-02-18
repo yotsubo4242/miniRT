@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:52:09 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/07/09 21:57:06 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/18 20:07:45 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/18 20:08:46 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#ifndef VECTOR_H
+# define VECTOR_H
 
-void	ft_lstadd_front(t_list **head, t_list *new_node)
+typedef struct s_vec3
 {
-	new_node->next = *head;
-	*head = new_node;
-}
+	double		x;
+	double		y;
+	double		z;
+}				t_vec3;
+
+typedef t_vec3	t_rgb;
+#endif

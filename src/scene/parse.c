@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:52:18 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/07/09 21:57:20 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/18 20:34:58 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/18 21:50:26 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "scene.h"
+#include <fcntl.h>
 
-t_list	*ft_lstlast(t_list *lst)
+t_scene	*parse_scene(const char *path)
 {
-	if (lst)
-	{
-		while (lst->next)
-			lst = lst->next;
-	}
-	return (lst);
+	int		fd;
+	t_scene	*scene;
+
+	scene = 0;
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		exit_with_error(EXIT_FAILURE, "failed to read file");
+	return (scene);
 }

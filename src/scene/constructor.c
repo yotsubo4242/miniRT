@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   constructor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:52:29 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/07/09 21:57:30 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/18 22:01:19 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/18 22:01:36 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "scene.h"
 
-int	ft_lstsize(t_list *lst)
+t_scene	*new_scene(void)
 {
-	size_t	count;
+	t_scene	*config;
 
-	count = 0;
-	while (lst)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
+	config = ft_calloc(1, sizeof(t_scene));
+	config->ambient = ft_calloc(1, sizeof(t_ambient_conf));
+	config->light = ft_calloc(1, sizeof(t_light_conf));
+	config->camera = ft_calloc(1, sizeof(t_camera_conf));
+	config->objects = create_list();
+	return (config);
 }

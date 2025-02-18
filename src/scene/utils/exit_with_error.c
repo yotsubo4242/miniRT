@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   exit_with_error.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:52:11 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/07/09 21:57:12 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/18 21:03:24 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/18 21:04:16 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "scene.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	exit_with_error(int status, const char *message)
 {
-	t_list	*tmp;
-
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
-	}
+	if (message == NULL)
+		write(STDERR_FILENO, "Error\n", 6);
+	else
+		ft_dprintf(STDERR_FILENO, "Error: %s\n", message);
+	exit(status);
 }
