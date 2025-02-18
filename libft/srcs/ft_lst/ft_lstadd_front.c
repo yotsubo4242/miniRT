@@ -12,8 +12,8 @@
 
 #include "../../includes/libft.h"
 
-void	ft_lstadd_front(t_list **head, t_list *new)
+void	ft_lstadd_front(t_list **head, t_list *new_node)
 {
-	new->next = *head;
-	*head = new;
+	new_node->next = *head;
+	*head = new_node;
 }

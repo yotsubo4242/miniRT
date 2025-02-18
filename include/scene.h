@@ -13,5 +13,10 @@
 #ifndef SCENE_H
 # define SCENE_H
 
+# include <stdbool.h>
+# include <stdio.h>
+# include "../libft/includes/libft.h"
+
 int	plus(int a, int b);
+
 #endif
