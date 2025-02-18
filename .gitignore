@@ -4,3 +4,4 @@ build/
 *.a
 miniRT
 Testing/
+.cache/
