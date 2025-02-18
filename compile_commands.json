@@ -1,0 +1,892 @@
+[
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_printf/ft_putchar.o",
+            "srcs/ft_printf/ft_putchar.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_printf/ft_putchar.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_dprintf/ft_dputnbr.o",
+            "srcs/ft_dprintf/ft_dputnbr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_dprintf/ft_dputnbr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_stdlib/ft_calloc.o",
+            "srcs/ft_stdlib/ft_calloc.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_stdlib/ft_calloc.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstsize.o",
+            "srcs/ft_lst/ft_lstsize.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstsize.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_to/ft_toupper.o",
+            "srcs/ft_to/ft_toupper.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_to/ft_toupper.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isupper.o",
+            "srcs/ft_is/ft_isupper.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isupper.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_stdlib/ft_split.o",
+            "srcs/ft_stdlib/ft_split.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_stdlib/ft_split.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isalnum.o",
+            "srcs/ft_is/ft_isalnum.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isalnum.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strlcat.o",
+            "srcs/ft_str/ft_strlcat.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strlcat.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strnstr.o",
+            "srcs/ft_str/ft_strnstr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strnstr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstadd_front.o",
+            "srcs/ft_lst/ft_lstadd_front.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstadd_front.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_put/ft_putnbr_fd.o",
+            "srcs/ft_put/ft_putnbr_fd.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_put/ft_putnbr_fd.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_dprintf/ft_dprintf.o",
+            "srcs/ft_dprintf/ft_dprintf.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_dprintf/ft_dprintf.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_printf/ft_putnbr.o",
+            "srcs/ft_printf/ft_putnbr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_printf/ft_putnbr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isdigit.o",
+            "srcs/ft_is/ft_isdigit.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isdigit.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isprint.o",
+            "srcs/ft_is/ft_isprint.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isprint.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_printf/ft_putaddress.o",
+            "srcs/ft_printf/ft_putaddress.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_printf/ft_putaddress.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strchr.o",
+            "srcs/ft_str/ft_strchr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strchr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strcmp.o",
+            "srcs/ft_str/ft_strcmp.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strcmp.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isascii.o",
+            "srcs/ft_is/ft_isascii.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isascii.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_mem/ft_memchr.o",
+            "srcs/ft_mem/ft_memchr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_mem/ft_memchr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_stdlib/ft_abs.o",
+            "srcs/ft_stdlib/ft_abs.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_stdlib/ft_abs.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-O3",
+            "-Iinclude",
+            "-Isrc",
+            "-Ilibft/includes",
+            "-o",
+            "obj/scene/test.o",
+            "src/scene/test.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT",
+        "file": "src/scene/test.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_dprintf/ft_dputaddress.o",
+            "srcs/ft_dprintf/ft_dputaddress.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_dprintf/ft_dputaddress.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_to/ft_tolower.o",
+            "srcs/ft_to/ft_tolower.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_to/ft_tolower.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strmapi.o",
+            "srcs/ft_str/ft_strmapi.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strmapi.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strdup.o",
+            "srcs/ft_str/ft_strdup.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strdup.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_striteri.o",
+            "srcs/ft_str/ft_striteri.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_striteri.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_printf/ft_putstr.o",
+            "srcs/ft_printf/ft_putstr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_printf/ft_putstr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_put/ft_putchar_fd.o",
+            "srcs/ft_put/ft_putchar_fd.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_put/ft_putchar_fd.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strlcpy.o",
+            "srcs/ft_str/ft_strlcpy.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strlcpy.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strncmp.o",
+            "srcs/ft_str/ft_strncmp.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strncmp.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_put/ft_putendl_fd.o",
+            "srcs/ft_put/ft_putendl_fd.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_put/ft_putendl_fd.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strtrim.o",
+            "srcs/ft_str/ft_strtrim.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strtrim.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isalpha.o",
+            "srcs/ft_is/ft_isalpha.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isalpha.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strnlen.o",
+            "srcs/ft_str/ft_strnlen.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strnlen.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_islower.o",
+            "srcs/ft_is/ft_islower.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_islower.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_printf/ft_printf.o",
+            "srcs/ft_printf/ft_printf.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_printf/ft_printf.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_is/ft_isspace.o",
+            "srcs/ft_is/ft_isspace.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_is/ft_isspace.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_dprintf/ft_dputstr.o",
+            "srcs/ft_dprintf/ft_dputstr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_dprintf/ft_dputstr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strldup.o",
+            "srcs/ft_str/ft_strldup.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strldup.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_mem/ft_memcmp.o",
+            "srcs/ft_mem/ft_memcmp.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_mem/ft_memcmp.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_substr.o",
+            "srcs/ft_str/ft_substr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_substr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strlen.o",
+            "srcs/ft_str/ft_strlen.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strlen.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-O3",
+            "-Iinclude",
+            "-Isrc",
+            "-Ilibft/includes",
+            "-o",
+            "obj/main.o",
+            "src/main.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT",
+        "file": "src/main.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_dprintf/ft_dputchar.o",
+            "srcs/ft_dprintf/ft_dputchar.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_dprintf/ft_dputchar.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstlast.o",
+            "srcs/ft_lst/ft_lstlast.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstlast.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstiter.o",
+            "srcs/ft_lst/ft_lstiter.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstiter.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strrchr.o",
+            "srcs/ft_str/ft_strrchr.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strrchr.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_mem/ft_memcpy.o",
+            "srcs/ft_mem/ft_memcpy.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_mem/ft_memcpy.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_to/ft_itoa.o",
+            "srcs/ft_to/ft_itoa.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_to/ft_itoa.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strjoin.o",
+            "srcs/ft_str/ft_strjoin.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strjoin.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_mem/ft_memset.o",
+            "srcs/ft_mem/ft_memset.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_mem/ft_memset.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstadd_back.o",
+            "srcs/ft_lst/ft_lstadd_back.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstadd_back.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_mem/ft_memmove.o",
+            "srcs/ft_mem/ft_memmove.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_mem/ft_memmove.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_put/ft_putstr_fd.o",
+            "srcs/ft_put/ft_putstr_fd.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_put/ft_putstr_fd.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_to/ft_atoi.o",
+            "srcs/ft_to/ft_atoi.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_to/ft_atoi.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_stdlib/ft_bzero.o",
+            "srcs/ft_stdlib/ft_bzero.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_stdlib/ft_bzero.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstdelone.o",
+            "srcs/ft_lst/ft_lstdelone.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstdelone.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstnew.o",
+            "srcs/ft_lst/ft_lstnew.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstnew.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstmap.o",
+            "srcs/ft_lst/ft_lstmap.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstmap.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_lst/ft_lstclear.o",
+            "srcs/ft_lst/ft_lstclear.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_lst/ft_lstclear.c"
+    },
+    {
+        "arguments": [
+            "cc",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-o",
+            "objs/ft_str/ft_strltrim.o",
+            "srcs/ft_str/ft_strltrim.c"
+        ],
+        "directory": "/home/tkitahar/projects/miniRT/libft",
+        "file": "srcs/ft_str/ft_strltrim.c"
+    }
+]
