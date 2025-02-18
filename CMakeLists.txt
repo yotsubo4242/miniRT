@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 enable_testing()
 
 add_subdirectory(libft)
-# add_subdirectory(tests)
+add_subdirectory(tests)
 
 include_directories(include)
 include_directories(libft/includes)

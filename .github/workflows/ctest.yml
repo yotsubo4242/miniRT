@@ -30,6 +30,6 @@ jobs:
       - name: Cmake, make makefile in build
         run: cmake -S . -B build 
       - name: Build, run make command in build dir
-        run: --build build
+        run: cmake --build build
       - name: Test, run CTest
         run: ctest --test-dir build
