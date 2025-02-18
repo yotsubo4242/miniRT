@@ -3,3 +3,4 @@ test
 build/
 *.a
 miniRT
+Testing/
