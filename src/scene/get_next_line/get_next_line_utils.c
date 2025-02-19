@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constructor.c                                      :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 22:01:19 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/18 22:01:36 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/05/24 17:51:31 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/05/27 16:00:57 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scene.h"
+#include "get_next_line.h"
 
-t_scene	*new_scene(void)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_scene	*config;
+	char		*char_dest;
+	const char	*char_src;
 
-	config = ft_calloc(1, sizeof(t_scene));
-	ft_bzero(&config->ambient, sizeof(t_ambient_conf));
-	ft_bzero(&config->light, sizeof(t_light_conf));
-	ft_bzero(&config->camera, sizeof(t_camera_conf));
-	config->objects = create_list();
-	return (config);
+	if (!dest && !src)
+		return (NULL);
+	char_dest = (char *)dest;
+	char_src = (const char *)src;
+	while (n--)
+		*char_dest++ = *char_src++;
+	return (dest);
 }
