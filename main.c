@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 17:42:16 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 12:53:17 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ int main(void)
 			if (D < 0)
 				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(scene_color));
 			else
-				caluculate_color(&data, x, y, D, a, b, obs, sphere, sphare_color, ray);
-				//my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
+				phong_shading(&data, x, y, D, a, b, obs, sphere, sphare_color, ray);
 		}
 	}
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img, 0, 0);

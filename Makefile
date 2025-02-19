@@ -5,8 +5,11 @@ SRCS = main.c \
 	./src/convert_color_to_hex.c \
 	./src/normalize.c \
 	./src/vec_minus.c \
-	./src/caluculate_color.c \
+	./src/phong_shading/ambient.c \
+	./src/phong_shading/diffuse.c \
+	./src/phong_shading/phong_shading.c \
 	./src/mag.c
+#./src/phong_shading/specular.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./includes -I./libmlx
 CC = cc

@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 17:23:44 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 13:42:17 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@
 #define LIGHT_X -2500
 #define LIGHT_Y 2500
 #define LIGHT_Z -2500
+#define KA 0.5
+#define KD 0.5
+#define KS 0.5
 
 typedef struct s_data
 {
@@ -67,7 +70,9 @@ double	mag(t_vec3 a);
 int		convert_color_to_hex(t_color color);
 t_vec3	normalize(t_vec3 a);
 t_vec3	vec_minus(t_vec3 a, t_vec3 b);
-void	caluculate_color(t_data *data, int x, int y, double D, double a, double b, \
+void	phong_shading(t_data *data, int x, int y, double D, double a, double b, \
 						t_vec3 obs, t_vec3 sphere, t_color sphare_color, t_vec3 ray);
+double	diffuse(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
+double	ambient(double ratio);
 
 #endif
