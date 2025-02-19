@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:09:21 by yuotsubo         ###   ########.fr       */
+/*   Created: 2024/11/27 16:12:40 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/11/27 16:13:00 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-
-void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

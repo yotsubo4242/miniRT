@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:09:21 by yuotsubo         ###   ########.fr       */
+/*   Created: 2024/05/08 21:16:57 by yuotsubo          #+#    #+#             */
+/*   Updated: 2024/05/08 21:21:02 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
+int	ft_isspace(char c)
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
+	if (c == '\t' || c == '\n' || c == '\v'\
+		|| c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
 }

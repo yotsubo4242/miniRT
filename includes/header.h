@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 14:46:50 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:51:47 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HEADER_H
 
 # include "mlx.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -22,6 +23,7 @@
 # include <string.h>
 # include <limits.h>
 # include <float.h>
+# include <stdbool.h>
 
 #define WIDTH 1000
 #define HEIGHT 1000
@@ -42,7 +44,7 @@
 // 鏡面反射での光沢度
 #define GLOSS 8
 
-typedef struct s_data
+typedef struct s_mlx_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -51,7 +53,7 @@ typedef struct s_data
 	int		bpp;
 	int		line_len;
 	int		endian;
-}				t_data;
+}				t_mlx_data;
 
 typedef struct s_color
 {
@@ -67,22 +69,37 @@ typedef struct s_vec3
 	double	z;
 }				t_vec3;
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int		convert_color_to_hex(t_color color);
+typedef enum e_init_mlx_err {
+	FT_CALLOC,
+	MLX_INIT,
+	MLX_NEW_WINDOW,
+	MLX_NEW_IMAGE,
+	MLX_GET_DATA_ADDR
+}	t_init_mlx_err;
+
+//error
+void		*err_init_mlx(t_mlx_data *mlx_data, t_init_mlx_err function);
+//init
+t_mlx_data	*init_mlx(void);
+//utils
+void		my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
+int			convert_color_to_hex(t_color color);
 // vector
-t_vec3	normalize(t_vec3 a);
-double	mag(t_vec3 a);
-double	dot(t_vec3 a, t_vec3 b);
-t_vec3	vec_minus(t_vec3 a, t_vec3 b);
-t_vec3	vec_mult(double	x, t_vec3 v);
-t_vec3	vec_rev(t_vec3 v);
+t_vec3		vec_normalize(t_vec3 a);
+bool		vec_is_normalized(t_vec3 v);
+double		vec_mag(t_vec3 a);
+double		vec_dot(t_vec3 a, t_vec3 b);
+bool		vec_eq(t_vec3 a, t_vec3 b);
+t_vec3		vec_minus(t_vec3 a, t_vec3 b);
+t_vec3		vec_mult(double	x, t_vec3 v);
+t_vec3		vec_rev(t_vec3 v);
 // phong_shading
-void	make_intersection(t_vec3 *intersection, t_vec3 obs, double t, t_vec3 ray);
-double	get_t(double a, double b, double D);
-void	phong_shading(t_data *data, int x, int y, double D, double a, double b, \
+void		make_intersection(t_vec3 *intersection, t_vec3 obs, double t, t_vec3 ray);
+double		get_t(double a, double b, double D);
+void		phong_shading(t_mlx_data *data, int x, int y, double D, double a, double b, \
 						t_vec3 obs, t_vec3 sphere, t_color sphare_color, t_vec3 ray);
-double	diffuse(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
-double	ambient(double ratio);
-double	specular(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
+double		diffuse(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
+double		ambient(double ratio);
+double		specular(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
 
 #endif

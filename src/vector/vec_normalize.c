@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dot.c                                              :+:      :+:    :+:   */
+/*   vec_vec_normalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 15:24:39 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 15:58:37 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/18 14:34:59 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/19 15:27:52 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-double dot(t_vec3 a, t_vec3 b)
+t_vec3	vec_normalize(t_vec3 a)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z);
+	double	magnitude;
+
+	magnitude = vec_mag(a);
+	a.x /= magnitude;
+	a.y /= magnitude;
+	a.z /= magnitude;
+	return (a);
 }

@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   map_and_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:09:21 by yuotsubo         ###   ########.fr       */
+/*   Created: 2024/05/22 13:34:24 by yuotsubo          #+#    #+#             */
+/*   Updated: 2024/06/14 09:40:48 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
+void	*map_and_free(void	*res, void *for_free)
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
+	if (for_free)
+		free(for_free);
+	return (res);
 }

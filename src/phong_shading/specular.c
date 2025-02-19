@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:13 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 14:48:55 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:29:15 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ double	specular(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 
 	t = get_t(a, b, D);
 	make_intersection(&intersection, obs, t, ray);
 	// 入射ベクトルの計算
-	l = normalize(vec_minus(light, intersection));
+	l = vec_normalize(vec_minus(light, intersection));
 	// 法線ベクトルの計算
-	n = normalize(vec_minus(intersection, sphere));
-	if (dot(n, l) < 0)
+	n = vec_normalize(vec_minus(intersection, sphere));
+	if (vec_dot(n, l) < 0)
 		return (0.0);
-	v = normalize(vec_rev(ray));
-	r = normalize(vec_minus(vec_mult(2 * dot(n, l), n), l));
-	if (dot(v, r) < 0)
+	v = vec_normalize(vec_rev(ray));
+	r = vec_normalize(vec_minus(vec_mult(2 * vec_dot(n, l), n), l));
+	if (vec_dot(v, r) < 0)
 		return (0.0);
 	// 光強度、拡散反射係数を1として、拡散反射光の放射輝度を計算
-	double	r_s = pow(dot(v, r), GLOSS) * KS * ratio;
+	double	r_s = pow(vec_dot(v, r), GLOSS) * KS * ratio;
 	if (r_s < 0)
 		r_s = 0;
 	return (r_s);

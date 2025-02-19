@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:09:21 by yuotsubo         ###   ########.fr       */
+/*   Created: 2024/04/18 18:28:09 by yuotsubo          #+#    #+#             */
+/*   Updated: 2024/04/18 22:00:56 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libft.h"
 
-void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*dst;
-
-	dst = data->img_addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

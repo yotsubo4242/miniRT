@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:21 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 13:42:02 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:07:15 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,15 @@ double	diffuse(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 r
 	t_vec3	light;
 	t_vec3	n;
 
-	// 光源の初期化
 	light.x = LIGHT_X;
 	light.y = LIGHT_Y;
 	light.z = LIGHT_Z;
-	// 交点の計算
 	t = get_t(a, b, D);
 	make_intersection(&intersection, obs, t, ray);
-	// 入射ベクトルの計算
-	l = normalize(vec_minus(light, intersection));
-	// 法線ベクトルの計算
-	n = normalize(vec_minus(intersection, sphere));
-	// 光強度、拡散反射係数を1として、拡散反射光の放射輝度を計算
-	double	r_d = dot(l, n) * KD * ratio;
+	l = vec_normalize(vec_minus(light, intersection));
+	n = vec_normalize(vec_minus(intersection, sphere));
+	double	r_d = vec_dot(l, n) * KD * ratio;
 	if (r_d < 0)
 		r_d = 0;
 	return (r_d);
-	//sphare_color.r = (int)(sphare_color.r * r_d);
-	//sphare_color.g = (int)(sphare_color.g * r_d);
-	//sphare_color.b = (int)(sphare_color.b * r_d);
-	//my_mlx_pixel_put(data, x, y, convert_color_to_hex(sphare_color));
 }
