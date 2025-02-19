@@ -16,7 +16,7 @@ static bool	is_rt_file(char *filename)
 {
 	const size_t	len = ft_strlen(filename);
 
-	if (len < 3)
+	if (len < 4)
 		return (false);
 	return (ft_strcmp(filename + len - 3, ".rt") == 0);
 }
