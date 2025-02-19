@@ -1,8 +1,12 @@
 NAME = test
 LIBFT = ./libft/libft.a
 SRCS = main.c \
+	./src/draw/sphere.c \
 	./src/error/err_init_mlx.c \
 	./src/init/init_mlx.c \
+	./src/init/init_scene.c \
+	./src/utils/caluc_screen_point.c \
+	./src/utils/caluc_ray.c \
 	./src/utils/my_mlx_pixel_put.c \
 	./src/utils/convert_color_to_hex.c \
 	./src/vector/vec_dot.c \

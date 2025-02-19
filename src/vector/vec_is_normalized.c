@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-bool	vec_is_vec_normalized(t_vec3 v)
+bool	vec_is_normalized(t_vec3 v)
 {
 	return (vec_eq(v, vec_normalize(v)));
 }

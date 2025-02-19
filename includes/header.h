@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 17:04:56 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:59:24 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ typedef struct s_vec3
 	double	z;
 }				t_vec3;
 
+typedef struct s_solve_quadratic_equation
+{
+	double	a;
+	double	b;
+	double	c;
+	double	D;
+}	t_solve_quadratic_equation;
+
 typedef struct s_scene
 {
 	t_vec3	screen;
@@ -87,11 +95,16 @@ typedef enum e_init_mlx_err {
 	MLX_GET_DATA_ADDR
 }	t_init_mlx_err;
 
+//draw
+void		sphere(t_mlx_data *mlx_data, t_scene scene);
 //error
 void		*err_init_mlx(t_mlx_data *mlx_data, t_init_mlx_err function);
 //init
 t_mlx_data	*init_mlx(void);
+t_scene		init_scene(void);
 //utils
+t_vec3		caluc_ray(t_vec3 screen);
+t_vec3		caluc_screen_point(int x, int y);
 void		my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
 int			convert_color_to_hex(t_color color);
 // vector
