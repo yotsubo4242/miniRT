@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 13:42:17 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:46:50 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@
 #define LIGHT_X -2500
 #define LIGHT_Y 2500
 #define LIGHT_Z -2500
-#define KA 0.5
-#define KD 0.5
-#define KS 0.5
+// 反射係数
+#define KA 0.01
+#define KD 0.69
+#define KS 0.3
+// 鏡面反射での光沢度
+#define GLOSS 8
 
 typedef struct s_data
 {
@@ -65,14 +68,21 @@ typedef struct s_vec3
 }				t_vec3;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-double	dot(t_vec3 a, t_vec3 b);
-double	mag(t_vec3 a);
 int		convert_color_to_hex(t_color color);
+// vector
 t_vec3	normalize(t_vec3 a);
+double	mag(t_vec3 a);
+double	dot(t_vec3 a, t_vec3 b);
 t_vec3	vec_minus(t_vec3 a, t_vec3 b);
+t_vec3	vec_mult(double	x, t_vec3 v);
+t_vec3	vec_rev(t_vec3 v);
+// phong_shading
+void	make_intersection(t_vec3 *intersection, t_vec3 obs, double t, t_vec3 ray);
+double	get_t(double a, double b, double D);
 void	phong_shading(t_data *data, int x, int y, double D, double a, double b, \
 						t_vec3 obs, t_vec3 sphere, t_color sphare_color, t_vec3 ray);
 double	diffuse(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
 double	ambient(double ratio);
+double	specular(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
 
 #endif

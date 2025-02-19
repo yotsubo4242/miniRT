@@ -1,15 +1,17 @@
 NAME = test
 SRCS = main.c \
-	./src/my_mlx_pixel_put.c \
-	./src/dot.c \
-	./src/convert_color_to_hex.c \
-	./src/normalize.c \
-	./src/vec_minus.c \
+	./src/utils/my_mlx_pixel_put.c \
+	./src/utils/convert_color_to_hex.c \
+	./src/vector/dot.c \
+	./src/vector/mag.c \
+	./src/vector/normalize.c \
+	./src/vector/vec_minus.c \
+	./src/vector/vec_mult.c \
+	./src/vector/vec_rev.c \
 	./src/phong_shading/ambient.c \
 	./src/phong_shading/diffuse.c \
-	./src/phong_shading/phong_shading.c \
-	./src/mag.c
-#./src/phong_shading/specular.c
+	./src/phong_shading/specular.c \
+	./src/phong_shading/phong_shading.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./includes -I./libmlx
 CC = cc
