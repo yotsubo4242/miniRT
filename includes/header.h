@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:51:47 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:04:56 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,16 @@ typedef struct s_vec3
 	double	y;
 	double	z;
 }				t_vec3;
+
+typedef struct s_scene
+{
+	t_vec3	screen;
+	t_vec3	ray;
+	t_vec3	camera;
+	t_vec3	sphere;
+	t_color	sphere_color;
+	t_color	scene_color;
+}				t_scene;
 
 typedef enum e_init_mlx_err {
 	FT_CALLOC,
