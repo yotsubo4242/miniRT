@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   creat_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:52:14 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/07/09 21:57:15 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/18 21:32:41 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/18 21:44:46 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "scene.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_list	*create_list(void)
 {
-	if (lst && del)
-	{
-		del(lst->content);
-		free(lst);
-	}
+	t_list	*list;
+
+	list = malloc(sizeof(t_list));
+	if (list == NULL)
+		return (NULL);
+	list->head = NULL;
+	list->tail = NULL;
+	list->size = 0;
+	return (list);
 }

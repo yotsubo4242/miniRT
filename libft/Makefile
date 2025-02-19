@@ -18,15 +18,6 @@ SRCS		=	$(SRCS_DIR)ft_is/ft_isalnum.c \
 			 	$(SRCS_DIR)ft_is/ft_isprint.c \
 			 	$(SRCS_DIR)ft_is/ft_isspace.c \
 			 	$(SRCS_DIR)ft_is/ft_isupper.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstadd_back.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstadd_front.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstclear.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstdelone.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstiter.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstlast.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstmap.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstnew.c \
-			 	$(SRCS_DIR)ft_lst/ft_lstsize.c \
 			 	$(SRCS_DIR)ft_mem/ft_memchr.c \
 			 	$(SRCS_DIR)ft_mem/ft_memcmp.c \
 			 	$(SRCS_DIR)ft_mem/ft_memcpy.c \

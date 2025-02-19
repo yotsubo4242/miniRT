@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 14:52:16 by tkitahar          #+#    #+#             */
-/*   Updated: 2024/05/12 19:41:30 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/18 21:29:52 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/18 21:38:25 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#ifndef LIST_H
+# define LIST_H
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+# include "scene.h"
+
+typedef struct s_node
 {
-	if (!lst)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
-}
+	void			*data;
+	struct s_node	*next;
+	struct s_node	*prev;
+}					t_node;
+
+typedef struct s_list
+{
+	t_node			*head;
+	t_node			*tail;
+	size_t			size;
+}					t_list;
+
+t_list	*create_list(void);
+
+#endif
