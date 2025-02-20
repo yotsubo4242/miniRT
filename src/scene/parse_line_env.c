@@ -29,6 +29,8 @@ t_ambient_conf	parse_ambient(const char *line)
 	ratio = parse_double(split[1]);
 	if (!is_in_range_double(ratio, 0, 1))
 		exit_with_error(EXIT_PARSE_ERROR, "ambient: invalid light ratio");
+	ambient_conf.ratio = ratio;
+	ambient_conf.color = parse_rgb(split[2]);
 	free_array(split);
 	return (ambient_conf);
 }
