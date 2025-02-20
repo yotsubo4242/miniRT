@@ -16,7 +16,10 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/libft/include)
 
 # build scene library
-file(GLOB_RECURSE SCENE_SOURCES ${CMAKE_SOURCE_DIR}/src/scene/*.c)
+file(GLOB_RECURSE SCENE_SOURCES 
+	${CMAKE_SOURCE_DIR}/src/scene/*.c
+	${CMAKE_SOURCE_DIR}/src/list/*.c
+)
 add_library(scene OBJECT ${SCENE_SOURCES})
 
 # build test program
