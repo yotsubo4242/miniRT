@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include "../libft/includes/libft.h"
-# include "../src/scene/list/list.h"
+# include "../src/list/list.h"
 # include "../src/scene/get_next_line/get_next_line.h"
 # include "vector.h"
 # include <fcntl.h>
