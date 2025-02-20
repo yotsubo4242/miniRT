@@ -1,0 +1,30 @@
+---
+name: Build
+on:
+  workflow_dispatch:
+   push:
+    branches:
+      - main
+      - dev
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - "tests/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - "tests/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: make CC=clang

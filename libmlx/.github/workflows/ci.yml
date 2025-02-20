@@ -37,10 +37,10 @@ jobs:
       run: |
         set -x
         if [ "$RUNNER_OS" == "Linux" ]; then
-            sudo apt-get install xvfb xvec_dotool valgrind
+            sudo apt-get install xvfb xdotool valgrind
             Xvfb $DISPLAY -screen 0 1280x1024x24 &
         elif [ "$RUNNER_OS" == "macOS" ]; then
-            brew install xvec_dotool
+            brew install xdotool
             defaults write org.x.X11 enable_test_extensions -boolean true
             sudo Xvfb $DISPLAY -screen 0 1280x1024x24 &           
         else
@@ -69,8 +69,8 @@ jobs:
             valgrind --leak-check=full --show-leak-kinds=definite,indirect,possible --errors-for-leak-kinds=definite,indirect,possible --error-exitcode=42 ./mlx-test > /dev/null &
             PID=$!
             sleep 30
-            xvec_dotool search --name Title3 windowfocus key Escape
-            xvec_dotool search --name Title2 windowfocus key Escape
+            xdotool search --name Title3 windowfocus key Escape
+            xdotool search --name Title2 windowfocus key Escape
             wait $PID
         elif [ "$RUNNER_OS" == "macOS" ]; then
             MallocStackLoggingNoCompact=1

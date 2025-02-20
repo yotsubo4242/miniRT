@@ -1,6 +1,7 @@
 *.o
 test
-*.log
-.vscode
+build/
 *.a
-.gitignore
+miniRT
+Testing/
+.cache/

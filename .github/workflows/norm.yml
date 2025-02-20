@@ -1,0 +1,31 @@
+---
+name: Norminette
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - dev
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - ".github/workflows/**"
+jobs:
+  norminette:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install norminette
+        run: python3 -m pip install norminette==3.3.51
+      - name: Run norminette
+        run: norminette libft include src

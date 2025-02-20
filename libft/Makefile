@@ -1,83 +1,82 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/15 23:54:10 by yuotsubo          #+#    #+#              #
-#    Updated: 2024/11/27 16:13:19 by tkitahar         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME		=	libft.a
 
-NAME = libft.a
-SRCS = ft_atoi.c \
-		ft_bzero.c \
-		ft_calloc.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_isspace.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_putchar_fd.c \
-		ft_putendl_fd.c \
-		ft_putstr_fd.c \
-		ft_strchr.c \
-		ft_strdup.c \
-		ft_strldup.c \
-		ft_strjoin.c \
-		ft_strlcat.c \
-		ft_strlcpy.c \
-		ft_strlen.c \
-		ft_strncmp.c \
-		ft_strcmp.c \
-		ft_strnstr.c \
-		ft_strrchr.c \
-		ft_substr.c \
-		ft_tolower.c \
-		ft_toupper.c \
-		ft_split.c \
-		ft_striteri.c \
-		ft_strmapi.c \
-		ft_itoa.c \
-		ft_strtrim.c \
-		ft_putnbr_fd.c \
-		map_and_free.c \
-		ft_lstnew.c \
-		ft_lstadd_back.c \
-		ft_lstadd_front.c \
-		ft_lstclear.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
-		ft_lstlast.c \
-		ft_lstmap.c \
-		ft_lstsize.c \
-		ft_printf.c \
-        ft_printf_utils.c \
-        ft_putuint_fd.c \
-        ft_ull_to_hex.c \
-		ft_dprintf.c
-OBJS = $(SRCS:.c=.o)
-INCLUDES = -I./
-CC = gcc -g
-CFLAGS = -Wall -Wextra -Werror
+INCS_DIR	=	includes/
+SRCS_DIR	=	srcs/
+OBJS_DIR	=	objs/
+
+CCFLAGS		=	-Wall -Wextra -Werror 
+
+RM			=	rm -rf
+AR			=	ar -rsc
+MKDIR		=	mkdir -p
+
+SRCS		=	$(SRCS_DIR)ft_is/ft_isalnum.c \
+			 	$(SRCS_DIR)ft_is/ft_isalpha.c \
+			 	$(SRCS_DIR)ft_is/ft_isascii.c \
+			 	$(SRCS_DIR)ft_is/ft_isdigit.c \
+			 	$(SRCS_DIR)ft_is/ft_islower.c \
+			 	$(SRCS_DIR)ft_is/ft_isprint.c \
+			 	$(SRCS_DIR)ft_is/ft_isspace.c \
+			 	$(SRCS_DIR)ft_is/ft_isupper.c \
+			 	$(SRCS_DIR)ft_mem/ft_memchr.c \
+			 	$(SRCS_DIR)ft_mem/ft_memcmp.c \
+			 	$(SRCS_DIR)ft_mem/ft_memcpy.c \
+			 	$(SRCS_DIR)ft_mem/ft_memmove.c \
+			 	$(SRCS_DIR)ft_mem/ft_memset.c \
+			 	$(SRCS_DIR)ft_dprintf/ft_dprintf.c \
+			 	$(SRCS_DIR)ft_dprintf/ft_dputaddress.c \
+			 	$(SRCS_DIR)ft_dprintf/ft_dputchar.c \
+			 	$(SRCS_DIR)ft_dprintf/ft_dputnbr.c \
+			 	$(SRCS_DIR)ft_dprintf/ft_dputstr.c \
+			 	$(SRCS_DIR)ft_printf/ft_printf.c \
+			 	$(SRCS_DIR)ft_printf/ft_putaddress.c \
+			 	$(SRCS_DIR)ft_printf/ft_putchar.c \
+			 	$(SRCS_DIR)ft_printf/ft_putnbr.c \
+			 	$(SRCS_DIR)ft_printf/ft_putstr.c \
+			 	$(SRCS_DIR)ft_put/ft_putchar_fd.c \
+			 	$(SRCS_DIR)ft_put/ft_putendl_fd.c \
+			 	$(SRCS_DIR)ft_put/ft_putnbr_fd.c \
+			 	$(SRCS_DIR)ft_put/ft_putstr_fd.c \
+			 	$(SRCS_DIR)ft_stdlib/ft_abs.c \
+			 	$(SRCS_DIR)ft_stdlib/ft_bzero.c \
+			 	$(SRCS_DIR)ft_stdlib/ft_calloc.c \
+			 	$(SRCS_DIR)ft_stdlib/ft_split.c \
+			 	$(SRCS_DIR)ft_str/ft_strchr.c \
+			 	$(SRCS_DIR)ft_str/ft_strdup.c \
+			 	$(SRCS_DIR)ft_str/ft_striteri.c \
+			 	$(SRCS_DIR)ft_str/ft_strjoin.c \
+			 	$(SRCS_DIR)ft_str/ft_strlcat.c \
+			 	$(SRCS_DIR)ft_str/ft_strlcpy.c \
+			 	$(SRCS_DIR)ft_str/ft_strldup.c \
+			 	$(SRCS_DIR)ft_str/ft_strlen.c \
+			 	$(SRCS_DIR)ft_str/ft_strltrim.c \
+			 	$(SRCS_DIR)ft_str/ft_strmapi.c \
+			 	$(SRCS_DIR)ft_str/ft_strncmp.c \
+			 	$(SRCS_DIR)ft_str/ft_strcmp.c \
+			 	$(SRCS_DIR)ft_str/ft_strnlen.c \
+			 	$(SRCS_DIR)ft_str/ft_strnstr.c\
+			 	$(SRCS_DIR)ft_str/ft_strrchr.c \
+			 	$(SRCS_DIR)ft_str/ft_strtrim.c \
+			 	$(SRCS_DIR)ft_str/ft_substr.c \
+			 	$(SRCS_DIR)ft_to/ft_atoi.c \
+			 	$(SRCS_DIR)ft_to/ft_itoa.c \
+			 	$(SRCS_DIR)ft_to/ft_tolower.c \
+			 	$(SRCS_DIR)ft_to/ft_toupper.c
+
+OBJS 			=  $(patsubst $(SRCS_DIR)%.c,$(OBJS_DIR)%.o,$(SRCS))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) rc $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	$(MKDIR) $(OBJS_DIR)
+	$(MKDIR) $(@D)
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM)  $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
