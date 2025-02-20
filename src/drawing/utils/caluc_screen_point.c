@@ -1,0 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   caluc_screen_point.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/19 17:40:02 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:15:05 by yotsubo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "header.h"
+
+t_vec3	caluc_screen_point(int x, int y)
+{
+	t_vec3	screen;
+
+	screen.x = x - WIDTH / 2;
+	screen.y = HEIGHT / 2 - y;
+	screen.z = 0;
+	return (screen);
+}
