@@ -9,7 +9,7 @@ SRCS = ./vector/vec_dot.c \
 		./vector/vec_rev.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I../../includes -I../../libmlx -I../../libft
-CC = cc -g -lm
+CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
