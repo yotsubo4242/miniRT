@@ -2,3 +2,5 @@
 test
 *.log
 .vscode
+*.a
+.gitignore

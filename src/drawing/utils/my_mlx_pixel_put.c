@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   caluc_screen_point.c                               :+:      :+:    :+:   */
+/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 17:40:02 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 17:44:57 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:15:11 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_vec3	caluc_screen_point(int x, int y)
+void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
 {
-	t_vec3	screen;
+	char	*dst;
 
-	screen.x = x - WIDTH / 2;
-	screen.y = HEIGHT / 2 - y;
-	screen.z = 0;
-	return (screen);
+	dst = data->img_addr + (y * data->line_len + x * (data->bpp / 8));
+	*(unsigned int *)dst = color;
 }

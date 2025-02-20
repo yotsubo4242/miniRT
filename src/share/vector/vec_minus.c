@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_color_to_hex.c                             :+:      :+:    :+:   */
+/*   vec_minus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 14:12:39 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 14:13:50 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/18 15:32:44 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:15:54 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	convert_color_to_hex(t_color color)
+t_vec3	vec_minus(t_vec3 a, t_vec3 b)
 {
-	int	rgb;
+	t_vec3	ret;
 
-	rgb = 0;
-	rgb += color.r << 16;
-	rgb += color.g << 8;
-	rgb += color.b;
-	return (rgb);
+	ret.x = a.x - b.x;
+	ret.y = a.y - b.y;
+	ret.z = a.z - b.z;
+	return (ret);
 }

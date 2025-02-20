@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_vec_normalize.c                                    :+:      :+:    :+:   */
+/*   vec_mult.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 14:34:59 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 15:27:52 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/19 14:02:25 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:17:32 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_vec3	vec_normalize(t_vec3 a)
+t_vec3	vec_mult(double x, t_vec3 v)
 {
-	double	magnitude;
-
-	magnitude = vec_mag(a);
-	a.x /= magnitude;
-	a.y /= magnitude;
-	a.z /= magnitude;
-	return (a);
+	v.x *= x;
+	v.y *= x;
+	v.z *= x;
+	return (v);
 }

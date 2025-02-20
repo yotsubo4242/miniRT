@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_is_vec_normalized.c                                :+:      :+:    :+:   */
+/*   caluc_ray.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 15:24:39 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 15:27:27 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/19 17:43:32 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:15:02 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-bool	vec_is_normalized(t_vec3 v)
+t_vec3	caluc_ray(t_vec3 screen)
 {
-	return (vec_eq(v, vec_normalize(v)));
+	t_vec3	ray;
+
+	ray.x = screen.x - OBSRV_X;
+	ray.y = screen.y - OBSRV_Y;
+	ray.z = screen.z - OBSRV_Z;
+	return (ray);
 }

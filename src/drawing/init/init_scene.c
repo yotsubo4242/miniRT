@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:11:50 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 17:13:21 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:30:17 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ t_scene	init_scene(void)
 	scene.sphere.x = SPHERE_X;
 	scene.sphere.y = SPHERE_Y;
 	scene.sphere.z = SPHERE_Z;
+	scene.light.x = LIGHT_X;
+	scene.light.y = LIGHT_Y;
+	scene.light.z = LIGHT_Z;
 	scene.sphere_color.r = 255;
 	scene.sphere_color.g = 0;
 	scene.sphere_color.b = 0;

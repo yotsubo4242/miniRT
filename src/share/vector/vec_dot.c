@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_minus.c                                        :+:      :+:    :+:   */
+/*   vec_dot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 15:32:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 15:32:54 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/06 15:24:39 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:17:47 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_vec3	vec_minus(t_vec3 a, t_vec3 b)
+double	vec_dot(t_vec3 a, t_vec3 b)
 {
-	t_vec3	ret;
-
-	ret.x = a.x - b.x;
-	ret.y = a.y - b.y;
-	ret.z = a.z - b.z;
-	return (ret);
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }

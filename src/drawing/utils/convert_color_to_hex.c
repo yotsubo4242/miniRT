@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_dot.c                                          :+:      :+:    :+:   */
+/*   convert_color_to_hex.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 15:24:39 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 15:29:15 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/18 14:12:39 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:15:08 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-double vec_dot(t_vec3 a, t_vec3 b)
+int	convert_color_to_hex(t_color color)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z);
+	int	rgb;
+
+	rgb = 0;
+	rgb += color.r << 16;
+	rgb += color.g << 8;
+	rgb += color.b;
+	return (rgb);
 }

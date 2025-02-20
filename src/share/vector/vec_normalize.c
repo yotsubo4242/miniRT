@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   vec_normalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:09:21 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/18 14:34:59 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/20 15:16:30 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
+t_vec3	vec_normalize(t_vec3 a)
 {
-	char	*dst;
+	double	magnitude;
 
-	dst = data->img_addr + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int *)dst = color;
+	magnitude = vec_mag(a);
+	a.x /= magnitude;
+	a.y /= magnitude;
+	a.z /= magnitude;
+	return (a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 17:59:24 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:50:18 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,24 @@
 # include <float.h>
 # include <stdbool.h>
 
-#define WIDTH 1000
-#define HEIGHT 1000
-#define OBSRV_X 0
-#define OBSRV_Y 0
-#define OBSRV_Z -2500
-#define SPHERE_X 0
-#define SPHERE_Y 0
-#define SPHERE_Z 2500
-#define SPHERE_RADIUS 500
-#define LIGHT_X -2500
-#define LIGHT_Y 2500
-#define LIGHT_Z -2500
+# define WIDTH 1000
+# define HEIGHT 1000
+# define OBSRV_X 0
+# define OBSRV_Y 0
+# define OBSRV_Z -2500
+# define SPHERE_X 0
+# define SPHERE_Y 0
+# define SPHERE_Z 2500
+# define SPHERE_RADIUS 500
+# define LIGHT_X -2500
+# define LIGHT_Y 2500
+# define LIGHT_Z -2500
 // 反射係数
-#define KA 0.01
-#define KD 0.69
-#define KS 0.3
+# define KA 0.01
+# define KD 0.69
+# define KS 0.3
 // 鏡面反射での光沢度
-#define GLOSS 8
+# define GLOSS 8
 
 typedef struct s_mlx_data
 {
@@ -62,6 +62,12 @@ typedef struct s_color
 	int	b;
 }				t_color;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
 typedef struct s_vec3
 {
 	double	x;
@@ -74,7 +80,7 @@ typedef struct s_solve_quadratic_equation
 	double	a;
 	double	b;
 	double	c;
-	double	D;
+	double	d;
 }	t_solve_quadratic_equation;
 
 typedef struct s_scene
@@ -83,6 +89,7 @@ typedef struct s_scene
 	t_vec3	ray;
 	t_vec3	camera;
 	t_vec3	sphere;
+	t_vec3	light;
 	t_color	sphere_color;
 	t_color	scene_color;
 }				t_scene;
@@ -114,15 +121,16 @@ double		vec_mag(t_vec3 a);
 double		vec_dot(t_vec3 a, t_vec3 b);
 bool		vec_eq(t_vec3 a, t_vec3 b);
 t_vec3		vec_minus(t_vec3 a, t_vec3 b);
-t_vec3		vec_mult(double	x, t_vec3 v);
+t_vec3		vec_mult(double x, t_vec3 v);
 t_vec3		vec_rev(t_vec3 v);
 // phong_shading
-void		make_intersection(t_vec3 *intersection, t_vec3 obs, double t, t_vec3 ray);
-double		get_t(double a, double b, double D);
-void		phong_shading(t_mlx_data *data, int x, int y, double D, double a, double b, \
-						t_vec3 obs, t_vec3 sphere, t_color sphare_color, t_vec3 ray);
-double		diffuse(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
+void		make_intersection(t_vec3 *intersection, double t, t_scene scene);
+double		get_t(t_solve_quadratic_equation qe);
+void		phong_shading(t_mlx_data *mlx_data, t_point pt, \
+							t_scene scene, t_solve_quadratic_equation qe);
+double		diffuse(t_solve_quadratic_equation qe, t_scene scene, double ratio);
 double		ambient(double ratio);
-double		specular(double D, double a, double b, t_vec3 obs, t_vec3 sphere, t_vec3 ray, double ratio);
+double		specular(t_solve_quadratic_equation qe, \
+						t_scene scene, double ratio);
 
 #endif
