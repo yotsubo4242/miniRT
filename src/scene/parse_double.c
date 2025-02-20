@@ -38,7 +38,7 @@ static const char	*atof_decimal_part(const char *str, double *result)
 {
 	int		digit;
 	double	scale;
-	
+
 	*result = 0;
 	scale = 0.1;
 	while (ft_isdigit(*str))
