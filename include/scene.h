@@ -86,7 +86,7 @@ bool			is_in_range_double(double value, double min, double max);
 unsigned int	parse_uint(const char *str);
 
 // parse_vec.c
-t_rgb	parse_rgb(const char *str);
+t_rgb			parse_rgb(const char *str);
 
 // vector.c
 t_vec3			double_to_vec3(double x, double y, double z);
