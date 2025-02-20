@@ -12,6 +12,7 @@ add_subdirectory(tests)
 
 include_directories(include)
 include_directories(libft/includes)
+include_directories(src/list)
 # cmake -S . 's . bit
 file(GLOB_RECURSE SOURCE_FILES "${CMAKE_SOURCE_DIR}/src/*.c")
 add_executable(miniRT ${SOURCE_FILES})

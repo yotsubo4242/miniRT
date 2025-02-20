@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constructor.c                                      :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 22:01:19 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/18 22:01:36 by tkitahar         ###   ########.fr       */
+/*   Created: 2024/05/24 17:51:36 by tkitahar          #+#    #+#             */
+/*   Updated: 2024/05/28 20:40:14 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "scene.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-t_scene	*new_scene(void)
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# define READ_ERROR -42
+
+typedef struct s_gnl
 {
-	t_scene	*config;
+	char	*str;
+	size_t	len;
+	size_t	capa;
+}			t_gnl;
 
-	config = ft_calloc(1, sizeof(t_scene));
-	ft_bzero(&config->ambient, sizeof(t_ambient_conf));
-	ft_bzero(&config->light, sizeof(t_light_conf));
-	ft_bzero(&config->camera, sizeof(t_camera_conf));
-	config->objects = create_list();
-	return (config);
-}
+char		*get_next_line(int fd);
+void		*ft_memcpy(void *dst, const void *src, size_t n);
+
+#endif
