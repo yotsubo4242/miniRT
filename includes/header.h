@@ -135,4 +135,3 @@ double		specular(t_solve_quadratic_equation qe, \
 						t_scene scene, double ratio);
 
 #endif
->>>>>>> e5285e6 (prepare to merge)

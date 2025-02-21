@@ -2,7 +2,7 @@ NAME := miniRT
 
 CC = cc
 
-SRC_DIR := src
+SRC_DIR := src/list src/scene
 OBJ_DIR := obj
 
 LIBFT := libft/libft.a
@@ -17,6 +17,7 @@ LDFLAGS := -Llibft -Llibmlx -Lm
 LDLIBS := -lft -lmlx_Linux -lX11 -lXext -lm
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
+SRC += $(shell find src -name 'main.c')
 OBJ := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 all: CFLAGS+=$(RELEASE_FLAGS)
