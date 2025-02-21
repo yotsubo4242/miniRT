@@ -7,10 +7,14 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*   Updated: 2025/02/06 18:11:42 by yuotsubo         ###   ########.fr       */
 =======
 /*   Updated: 2025/02/18 14:14:37 by yuotsubo         ###   ########.fr       */
 >>>>>>> eb3b6ba (add: convert_color_to_hex.c)
+=======
+/*   Updated: 2025/02/18 14:32:37 by yuotsubo         ###   ########.fr       */
+>>>>>>> edb4590 (add: normalize.c)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +29,9 @@
 #define SPHERE_Y 0
 #define SPHERE_Z 2500
 #define SPHERE_RADIUS 500
+#define LIGHT_X -2500
+#define LIGHT_Y 2500
+#define LIGHT_Z -2500
 
 int	my_exit(int keycode, void *param)
 {
@@ -40,8 +47,9 @@ int main(void)
 	t_vec3	screen;
 	t_vec3	ray;
 	t_vec3	obs;
-	t_color	sphare_color;
 	t_vec3	sphere;
+	t_color	sphare_color;
+	t_color	scene_color;
 
 	// 観測者の位置ベクトル
 	obs.x = OBSRV_X;
@@ -55,6 +63,10 @@ int main(void)
 	sphare_color.r = 255;
 	sphare_color.g = 0;
 	sphare_color.b = 0;
+	// シーンの色
+	scene_color.r = 100;
+	scene_color.g = 149;
+	scene_color.b = 237;
 	// mlxの初期化
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Hello World!");
@@ -82,6 +94,7 @@ int main(void)
 
 			double D = pow(b, 2) - 4 * a * c;
 			if (D < 0)
+<<<<<<< HEAD
 			{
 				my_mlx_pixel_put(&data, x, y, 0x00FFFF);
 				continue;
@@ -106,6 +119,9 @@ int main(void)
 				continue;
 			}
 =======
+=======
+				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(scene_color));
+>>>>>>> edb4590 (add: normalize.c)
 			else
 				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
 >>>>>>> eb3b6ba (add: convert_color_to_hex.c)
