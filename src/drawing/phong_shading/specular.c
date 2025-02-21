@@ -6,7 +6,7 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:13 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:42:28 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 15:41:41 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ static double	caluc_r_s(t_scene scene, t_vec3 n, t_vec3 l, double ratio)
 		r_s = 0;
 	return (r_s);
 }
+
+// double	pl_specular(t_scene scene, double ratio)
+// {
+	
+// }
 
 double	specular(t_solve_quadratic_equation qe, t_scene scene, double ratio)
 {

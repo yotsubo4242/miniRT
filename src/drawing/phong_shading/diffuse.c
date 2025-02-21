@@ -6,7 +6,7 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:21 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:49:13 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:15:14 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,40 @@ double	get_t(t_solve_quadratic_equation qe)
 			t = t2;
 	}
 	return (t);
+}
+
+double	pl_get_t(t_scene scene)
+{
+	double	t;
+	double	dn;
+
+	dn = vec_dot(scene.ray, scene.plane_n);
+	if (dn == 0)
+		return (0);
+	t = (vec_dot(scene.plane, scene.plane_n) \
+			- vec_dot(scene.camera, scene.plane_n)) \
+			/ vec_dot(scene.ray, scene.plane_n);
+	return (t);
+}
+
+double	pl_diffuse(t_scene scene, double ratio)
+{
+	double	t;
+	t_vec3	intersection;
+	t_vec3	l;
+	double	nl;
+	double	r_d;
+
+	t = pl_get_t(scene);
+	make_intersection(&intersection, t, scene);
+	l = vec_normalize(vec_minus(scene.light, intersection));
+	nl = vec_dot(scene.plane_n, l);
+	if (nl < 0)
+		nl = vec_dot(vec_rev(scene.plane_n), l);
+	r_d = KD * ratio * nl;
+	if (r_d < 0)
+		r_d = 0;
+	return (r_d);
 }
 
 double	diffuse(t_solve_quadratic_equation qe, t_scene scene, double ratio)

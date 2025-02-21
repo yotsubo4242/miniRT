@@ -6,7 +6,7 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:06:15 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:01:45 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(void)
 
 	scene = init_scene();
 	mlx_data = init_mlx();
-	sphere(mlx_data, scene);
+	// sphere(mlx_data, scene);
+	plane(mlx_data, scene);
 	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
 							mlx_data->img, 0, 0);
 	mlx_key_hook(mlx_data->win_ptr, my_exit, NULL);

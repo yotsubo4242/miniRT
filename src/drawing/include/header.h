@@ -6,7 +6,7 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/21 14:33:52 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:22:05 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,38 @@
 # include <float.h>
 # include <stdbool.h>
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 500
+# define HEIGHT 500
 # define OBSRV_X 0
 # define OBSRV_Y 0
-# define OBSRV_Z -2500
+# define OBSRV_Z -1250
 # define SPHERE_X 0
 # define SPHERE_Y 0
-# define SPHERE_Z 2500
-# define SPHERE_RADIUS 500
-# define LIGHT_X -2500
-# define LIGHT_Y 2500
-# define LIGHT_Z -2500
+# define SPHERE_Z 1250
+# define SPHERE_RADIUS 250
+# define LIGHT_X -1250
+# define LIGHT_Y 1250
+# define LIGHT_Z -1250
+# define PLANE_X 0
+# define PLANE_Y 0
+# define PLANE_Z 100
+# define PLANE_N_X 0.0
+# define PLANE_N_Y 0.0
+# define PLANE_N_Z 1.0
 // 反射係数
 # define KA 0.01
 # define KD 0.69
 # define KS 0.3
 // 鏡面反射での光沢度
 # define GLOSS 8
+
+typedef enum e_init_mlx_err {
+	FT_CALLOC,
+	MLX_INIT,
+	MLX_NEW_WINDOW,
+	MLX_NEW_IMAGE,
+	MLX_GET_DATA_ADDR
+}	t_init_mlx_err;
 
 typedef struct s_mlx_data
 {
@@ -83,18 +97,14 @@ typedef struct s_scene
 	t_vec3	ray;
 	t_vec3	camera;
 	t_vec3	sphere;
+	t_vec3	plane;
+	t_vec3	plane_n;
 	t_vec3	light;
 	t_color	sphere_color;
+	t_color	plane_color;
 	t_color	scene_color;
 }				t_scene;
 
-typedef enum e_init_mlx_err {
-	FT_CALLOC,
-	MLX_INIT,
-	MLX_NEW_WINDOW,
-	MLX_NEW_IMAGE,
-	MLX_GET_DATA_ADDR
-}	t_init_mlx_err;
 
 //draw
 void		sphere(t_mlx_data *mlx_data, t_scene scene);
@@ -117,5 +127,12 @@ double		diffuse(t_solve_quadratic_equation qe, t_scene scene, double ratio);
 double		ambient(double ratio);
 double		specular(t_solve_quadratic_equation qe, \
 						t_scene scene, double ratio);
+
+
+void	plane(t_mlx_data *mlx_data, t_scene scene);
+void	pl_phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene);
+double	pl_diffuse(t_scene scene, double ratio);
+double	pl_diffuse(t_scene scene, double ratio);
+double	pl_specular(t_scene scene, double ratio);
 
 #endif

@@ -2,6 +2,7 @@ NAME = test
 LIBFT = ../../libft/libft.a
 SRCS = main.c \
 	./draw/sphere.c \
+	./draw/plane.c \
 	./error/err_init_mlx.c \
 	./init/init_mlx.c \
 	./init/init_scene.c \

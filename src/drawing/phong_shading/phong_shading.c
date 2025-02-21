@@ -6,11 +6,31 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:12:42 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:44:42 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:09:53 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void	pl_phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene)
+{
+	double	r_a;
+	double	r_d;
+	// double	r_s;
+	double	r;
+
+	// printf("x: %d, y: %d\n", pt.x, pt.y);
+	r_a = ambient(0.8);
+	r_d = pl_diffuse(scene, 1.0);
+	// r_s = pl_specular(scene, 1.0);
+	// r = r_a + r_d + r_s;
+	r = r_a + r_d;
+	scene.plane_color.r = (int)(scene.plane_color.r * r);
+	scene.plane_color.g = (int)(scene.plane_color.g * r);
+	scene.plane_color.b = (int)(scene.plane_color.b * r);
+	my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
+					convert_color_to_hex(scene.plane_color));
+}
 
 void	phong_shading(t_mlx_data *mlx_data, t_point pt, \
 						t_scene scene, t_solve_quadratic_equation qe)
