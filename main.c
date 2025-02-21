@@ -6,7 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/02/06 18:11:42 by yuotsubo         ###   ########.fr       */
+=======
+/*   Updated: 2025/02/18 14:14:37 by yuotsubo         ###   ########.fr       */
+>>>>>>> eb3b6ba (add: convert_color_to_hex.c)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +40,7 @@ int main(void)
 	t_vec3	screen;
 	t_vec3	ray;
 	t_vec3	obs;
+	t_color	sphare_color;
 	t_vec3	sphere;
 
 	// 観測者の位置ベクトル
@@ -46,6 +51,10 @@ int main(void)
 	sphere.x = SPHERE_X;
 	sphere.y = SPHERE_Y;
 	sphere.z = SPHERE_Z;
+	// 球の色
+	sphare_color.r = 255;
+	sphare_color.g = 0;
+	sphare_color.b = 0;
 	// mlxの初期化
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Hello World!");
@@ -83,6 +92,7 @@ int main(void)
 			if (t1 < 0 && t2 < 0)
 			{
 				my_mlx_pixel_put(&data, x, y, 0x000000);
+<<<<<<< HEAD
 				continue;
 			}
 			else if (t1 > 0)
@@ -95,6 +105,10 @@ int main(void)
 				my_mlx_pixel_put(&data, x, y, 0x00FF00);
 				continue;
 			}
+=======
+			else
+				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
+>>>>>>> eb3b6ba (add: convert_color_to_hex.c)
 		}
 	}
 

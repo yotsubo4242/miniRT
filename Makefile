@@ -1,5 +1,4 @@
 NAME := miniRT
-
 CC = cc
 
 SRC_DIR := src
