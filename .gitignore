@@ -5,5 +5,5 @@ build/
 miniRT
 Testing/
 .cache/
+.vscode/*
 .gitignore
-.vscode/
