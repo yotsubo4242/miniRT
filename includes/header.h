@@ -44,6 +44,7 @@
 // 鏡面反射での光沢度
 # define GLOSS 8
 
+
 typedef struct s_mlx_data
 {
 	void	*mlx_ptr;
