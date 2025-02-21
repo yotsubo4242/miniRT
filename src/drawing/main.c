@@ -28,7 +28,8 @@ int	my_exit(int keycode, void *param)
 // 	scene = init_scene();
 // 	mlx_data = init_mlx();
 // 	sphere(mlx_data, scene);
-// 	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
+// 	mlx_put_image_to_window(mlx_data->mlx_ptr, 
+// 	mlx_data->win_ptr, \
 // 							mlx_data->img, 0, 0);
 // 	mlx_key_hook(mlx_data->win_ptr, my_exit, NULL);
 // 	mlx_loop(mlx_data->mlx_ptr);
