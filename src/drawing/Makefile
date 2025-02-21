@@ -14,7 +14,7 @@ SRCS = main.c \
 	./phong_shading/specular.c \
 	./phong_shading/phong_shading.c
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I../../includes -I../../libmlx -I../../libft
+INCLUDES = -I./include -I../share/include -I../../libmlx -I../../libft
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 LIBS = -lmlx_Linux -lX11 -lXext -lm -lft -lshare

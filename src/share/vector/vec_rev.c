@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   vec_rev.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:35:37 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 14:37:11 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/21 14:35:03 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "vector.h"
 
 t_vec3	vec_rev(t_vec3 v)
 {

@@ -6,11 +6,11 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:24:39 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:17:47 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:34:10 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "vector.h"
 
 double	vec_dot(t_vec3 a, t_vec3 b)
 {
