@@ -8,6 +8,7 @@
 /*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*   Updated: 2025/02/06 18:11:42 by yuotsubo         ###   ########.fr       */
 =======
 /*   Updated: 2025/02/18 14:14:37 by yuotsubo         ###   ########.fr       */
@@ -15,11 +16,15 @@
 =======
 /*   Updated: 2025/02/18 14:32:37 by yuotsubo         ###   ########.fr       */
 >>>>>>> edb4590 (add: normalize.c)
+=======
+/*   Updated: 2025/02/18 17:42:16 by yuotsubo         ###   ########.fr       */
+>>>>>>> cd3e88c (add: caluculate_color.c: 拡散反射光実装！！)
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
+<<<<<<< HEAD
 #define WIDTH 1000
 #define HEIGHT 1000
 #define OBSRV_X 0
@@ -33,6 +38,8 @@
 #define LIGHT_Y 2500
 #define LIGHT_Z -2500
 
+=======
+>>>>>>> cd3e88c (add: caluculate_color.c: 拡散反射光実装！！)
 int	my_exit(int keycode, void *param)
 {
 	(void)param;
@@ -64,9 +71,9 @@ int main(void)
 	sphare_color.g = 0;
 	sphare_color.b = 0;
 	// シーンの色
-	scene_color.r = 100;
-	scene_color.g = 149;
-	scene_color.b = 237;
+	scene_color.r = 255;
+	scene_color.g = 255;
+	scene_color.b = 255;
 	// mlxの初期化
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Hello World!");
@@ -123,8 +130,13 @@ int main(void)
 				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(scene_color));
 >>>>>>> edb4590 (add: normalize.c)
 			else
+<<<<<<< HEAD
 				my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
 >>>>>>> eb3b6ba (add: convert_color_to_hex.c)
+=======
+				caluculate_color(&data, x, y, D, a, b, obs, sphere, sphare_color, ray);
+				//my_mlx_pixel_put(&data, x, y, convert_color_to_hex(sphare_color));
+>>>>>>> cd3e88c (add: caluculate_color.c: 拡散反射光実装！！)
 		}
 	}
 
