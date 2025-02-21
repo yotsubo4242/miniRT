@@ -1,5 +1,7 @@
 NAME := miniRT
 
+CC = cc
+
 SRC_DIR := src
 OBJ_DIR := obj
 
@@ -9,10 +11,10 @@ CFLAGS := -Wall -Wextra -Werror
 
 RELEASE_FLAGS := -O3
 DEBUG_FLAGS := -ggdb3 -O0 -fsanitize=address
-INCLUDES := -Iinclude -Isrc -Ilibft/includes
+INCLUDES := -Iinclude -Isrc -Ilibft/include -I./includes -I./libmlx
 
-LDFLAGS := -Llibft
-LDLIBS := -lft
+LDFLAGS := -Llibft -Llibmlx -Lm
+LDLIBS := -lft -lmlx_Linux -lX11 -lXext -lm
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
 OBJ := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
