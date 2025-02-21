@@ -14,7 +14,7 @@ DEBUG_FLAGS := -ggdb3 -O0 -fsanitize=address
 INCLUDES := -Iinclude -Isrc -Ilibft/includes -I./includes -I./libmlx
 
 LDFLAGS := -Llibft -Llibmlx -Lm
-LDLIBS := -lft -lmlx_Linux -lX11 -lXext -lm
+LDLIBS := -lft
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
 SRC += $(shell find src -name 'main.c')
