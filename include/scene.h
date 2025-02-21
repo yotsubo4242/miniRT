@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/19 20:39:58 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:06:17 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,18 @@ double			parse_double(const char *str);
 
 // in_range.c
 bool			is_in_range_double(double value, double min, double max);
+
+// parse_uint.c
+unsigned int	parse_uint(const char *str);
+
+// parse_vec.c
+t_rgb			parse_rgb(const char *str);
+
+// vector.c
+t_vec3			double_to_vec3(double x, double y, double z);
+
+// getter_rgb.c
+double			rgb_get_r(t_rgb a);
+double			rgb_get_g(t_rgb a);
+double			rgb_get_b(t_rgb a);
 #endif

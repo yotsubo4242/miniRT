@@ -1,4 +1,4 @@
-NAME = test
+NAME = libdrawing.a
 LIBFT = ../../libft/libft.a
 SRCS = main.c \
 	./draw/sphere.c \
@@ -25,7 +25,8 @@ SHARE = ../share/libshare.a
 all : $(NAME)
 
 $(NAME) : $(OBJS) $(MLX) $(LIBFT) $(SHARE)
-	$(CC) $(CFLAGS) $(INCLUDES) -L../../libmlx -L../share -L../../libft $(OBJS) $(LIBS)  -o $@ 
+	 # $(CFLAGS) $(INCLUDES) -L../../libmlx -L../share -L../../libft $(OBJS) $(LIBS) -o $@ 
+	 ar rcs $@ $(OBJS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@

@@ -35,6 +35,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
+long				ft_atol(const char *str);
 
 // mem
 void				*ft_memset(void *str, int c, size_t n);
@@ -62,6 +63,7 @@ char				*ft_strldup(const char *s, int len);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strall(const char *str, int (*f)(int));
 
 // put
 void				ft_putchar_fd(char c, int fd);

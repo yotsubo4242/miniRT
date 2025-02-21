@@ -5,3 +5,5 @@ build/
 miniRT
 Testing/
 .cache/
+*.log
+.vscode

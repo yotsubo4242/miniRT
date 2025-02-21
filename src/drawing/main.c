@@ -19,18 +19,19 @@ int	my_exit(int keycode, void *param)
 		exit(0);
 	return (0);
 }
-
-int	main(void)
-{
-	t_mlx_data	*mlx_data;
-	t_scene		scene;
-
-	scene = init_scene();
-	mlx_data = init_mlx();
-	sphere(mlx_data, scene);
-	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
-							mlx_data->img, 0, 0);
-	mlx_key_hook(mlx_data->win_ptr, my_exit, NULL);
-	mlx_loop(mlx_data->mlx_ptr);
-	return (0);
-}
+//
+// int	main(void)
+// {
+// 	t_mlx_data	*mlx_data;
+// 	t_scene		scene;
+//
+// 	scene = init_scene();
+// 	mlx_data = init_mlx();
+// 	sphere(mlx_data, scene);
+// 	mlx_put_image_to_window(mlx_data->mlx_ptr, 
+// 	mlx_data->win_ptr, \
+// 							mlx_data->img, 0, 0);
+// 	mlx_key_hook(mlx_data->win_ptr, my_exit, NULL);
+// 	mlx_loop(mlx_data->mlx_ptr);
+// 	return (0);
+// }

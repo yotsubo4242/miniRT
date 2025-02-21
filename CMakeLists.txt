@@ -13,7 +13,16 @@ add_subdirectory(tests)
 include_directories(include)
 include_directories(libft/includes)
 include_directories(src/list)
-# cmake -S . 's . bit
-file(GLOB_RECURSE SOURCE_FILES "${CMAKE_SOURCE_DIR}/src/*.c")
+
+file(GLOB_RECURSE SOURCE_FILES 
+    ${CMAKE_SOURCE_DIR}/src/scene/*.c
+    ${CMAKE_SOURCE_DIR}/src/list/*.c
+    ${CMAKE_SOURCE_DIR}/src/main.c
+)
+
+# src/drawing ディレクトリ内のファイルを除外
+list(FILTER SOURCE_FILES EXCLUDE REGEX ".*/src/drawing/.*")
+
 add_executable(miniRT ${SOURCE_FILES})
+
 target_link_libraries(miniRT ft)
