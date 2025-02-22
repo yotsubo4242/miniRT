@@ -3,11 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*                                                                            */
-/*   Updated: 2025/02/20 15:50:18 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/22 19:09:06 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +15,7 @@
 
 # include "mlx.h"
 # include "libft.h"
+# include "vector.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -38,6 +38,12 @@
 # define LIGHT_X -2500
 # define LIGHT_Y 2500
 # define LIGHT_Z -2500
+# define PLANE_X 0
+# define PLANE_Y 0
+# define PLANE_Z 2500
+# define PLANE_N_X 1
+# define PLANE_N_Y 0
+# define PLANE_N_Z 2
 // 反射係数
 # define KA 0.01
 # define KD 0.69
@@ -69,13 +75,6 @@ typedef struct s_point
 	int	y;
 }	t_point;
 
-typedef struct s_vec3
-{
-	double	x;
-	double	y;
-	double	z;
-}				t_vec3;
-
 typedef struct s_solve_quadratic_equation
 {
 	double	a;
@@ -90,8 +89,11 @@ typedef struct s_scene
 	t_vec3	ray;
 	t_vec3	camera;
 	t_vec3	sphere;
+	t_vec3	plane;
+	t_vec3	plane_n;
 	t_vec3	light;
 	t_color	sphere_color;
+	t_color	plane_color;
 	t_color	scene_color;
 }				t_scene;
 
@@ -115,15 +117,6 @@ t_vec3		caluc_ray(t_vec3 screen);
 t_vec3		caluc_screen_point(int x, int y);
 void		my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
 int			convert_color_to_hex(t_color color);
-// vector
-t_vec3		vec_normalize(t_vec3 a);
-bool		vec_is_normalized(t_vec3 v);
-double		vec_mag(t_vec3 a);
-double		vec_dot(t_vec3 a, t_vec3 b);
-bool		vec_eq(t_vec3 a, t_vec3 b);
-t_vec3		vec_minus(t_vec3 a, t_vec3 b);
-t_vec3		vec_mult(double x, t_vec3 v);
-t_vec3		vec_rev(t_vec3 v);
 // phong_shading
 void		make_intersection(t_vec3 *intersection, double t, t_scene scene);
 double		get_t(t_solve_quadratic_equation qe);
@@ -133,5 +126,11 @@ double		diffuse(t_solve_quadratic_equation qe, t_scene scene, double ratio);
 double		ambient(double ratio);
 double		specular(t_solve_quadratic_equation qe, \
 						t_scene scene, double ratio);
+
+void		plane(t_mlx_data *mlx_data, t_scene scene);
+double		pl_get_t(t_scene scene);
+double		pl_diffuse(t_scene scene, double ratio);
+void		pl_phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene);
+double		pl_specular(t_scene scene, double ratio);
 
 #endif

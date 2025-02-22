@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   specular.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:13 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:42:28 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/22 19:08:50 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ static double	caluc_r_s(t_scene scene, t_vec3 n, t_vec3 l, double ratio)
 	if (r_s < 0)
 		r_s = 0;
 	return (r_s);
+}
+
+double	pl_specular(t_scene scene, double ratio)
+{
+	t_vec3	intersection;
+	t_vec3	l;
+	t_vec3	n;
+
+	make_intersection(&intersection, pl_get_t(scene), scene);
+	l = vec_normalize(vec_minus(scene.light, intersection));
+	n = scene.plane_n;
+	if (vec_dot(n, l) < 0)
+		return (0.0);
+	return (caluc_r_s(scene, n, l, ratio));
 }
 
 double	specular(t_solve_quadratic_equation qe, t_scene scene, double ratio)

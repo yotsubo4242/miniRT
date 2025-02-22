@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   vec_mag.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:39:06 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 15:29:15 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/21 14:34:41 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "vector.h"
 
 double	vec_mag(t_vec3 a)
 {
