@@ -17,7 +17,7 @@ LDFLAGS := -Llibft -Llibmlx -Lm
 LDLIBS := -lft
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
-SRC += $(shell find src -name 'main.c')
+SRC += src/main.c
 OBJ := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 all: CFLAGS+=$(RELEASE_FLAGS)
