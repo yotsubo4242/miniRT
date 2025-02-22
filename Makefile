@@ -11,10 +11,10 @@ CFLAGS := -Wall -Wextra -Werror
 
 RELEASE_FLAGS := -O3
 DEBUG_FLAGS := -ggdb3 -O0 -fsanitize=address
-INCLUDES := -Iinclude -Isrc -Ilibft/includes -I./includes -I./libmlx
+INCLUDES := -Iinclude -Ilibft/includes   -Ilibmlx 
 
-LDFLAGS := -Llibft -Llibmlx -Lm
-LDLIBS := -lft
+LDFLAGS := -Llibft -Llibmlx -Lm -Lsrc/share
+LDLIBS := -lft -lshare -lm
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
 SRC += src/main.c

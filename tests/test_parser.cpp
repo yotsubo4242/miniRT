@@ -45,6 +45,7 @@ TEST(ConfigTest, IsValidDouble_valid8) {
 	EXPECT_EQ(is_valid_double("-.1"), true);
 }
 
+// is_valid_double
 // exept false
 TEST(ConfigTest, IsValidDouble_invalid1) {
 	EXPECT_EQ(is_valid_double("+1.2"), false);
@@ -72,6 +73,7 @@ TEST(ConfigTest, ParseUintMax) {
 	EXPECT_EQ(parse_uint("4294967295"), 4294967295);
 }
 
+// parse_unit
 // expect exit
 TEST(ConfigTest, ParseUintOverflow) {
 	EXPECT_EXIT(parse_uint("4294967296"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
@@ -139,6 +141,7 @@ TEST(ConfigTest, ParseDoubleStartWithDot) {
 	EXPECT_DOUBLE_EQ(parse_double(".123"), 0.123);
 }
 
+// parse_double
 // expect exit
 TEST(ConfigTest, ParseDoubleEmpty) {
 	EXPECT_EXIT(parse_double(""), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
@@ -172,8 +175,44 @@ TEST(ConfigTest, ParseDoubleSign2) {
 	EXPECT_EXIT(parse_double("+-1.2"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
 }
 
-// parse_rgb
+// parse_vec3
 // exept eq
+TEST(ConfigTest, ParseVec3) {
+	t_vec3 vec = parse_vec3("1.2,3.4,5.6");
+	expect_vec3(vec, 1.2, 3.4, 5.6);
+}
+
+TEST(ConfigTest, ParseVec3Negative) {
+	t_vec3 vec = parse_vec3("-1.2,-3.4,-5.6");
+	expect_vec3(vec, -1.2, -3.4, -5.6);
+}
+
+// parse_vec3
+// expect exit
+TEST(ConfigTest, ParseVec3ExtraSpace) {
+	EXPECT_EXIT(parse_vec3("1.2, 3.4, 5.6"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseVec3ExtraComma) {
+	EXPECT_EXIT(parse_vec3("1.2,,3.4,5.6"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseVec3MissingComma) {
+	EXPECT_EXIT(parse_vec3("1.2,3.4 5.6"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseVec3MissingValue) {
+	EXPECT_EXIT(parse_vec3("1.2,3.4,"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseVec3Empty) {
+	EXPECT_EXIT(parse_vec3(""), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseVec3Space) {
+	EXPECT_EXIT(parse_vec3(" "), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
 TEST(ConfigTest, ParseRgb) {
 	t_rgb rgb = parse_rgb("1,2,3");
 	expect_vec3(rgb, 1, 2, 3);
@@ -189,6 +228,7 @@ TEST(ConfigTest, ParseRgbZero) {
 	expect_vec3(rgb, 0, 0, 0);
 }
 
+// parse_rgb
 // expect exit
 TEST(ConfigTest, ParseRgbNegative) {
 	EXPECT_EXIT(parse_rgb("-1,2,3"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");

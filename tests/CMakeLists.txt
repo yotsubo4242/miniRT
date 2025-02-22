@@ -14,11 +14,14 @@ include(GoogleTest)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/libft/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/list/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/share/include)
 
 # build scene library
 file(GLOB_RECURSE SCENE_SOURCES 
 	${CMAKE_SOURCE_DIR}/src/scene/*.c
 	${CMAKE_SOURCE_DIR}/src/list/*.c
+	${CMAKE_SOURCE_DIR}/src/share/*.c
 )
 add_library(scene OBJECT ${SCENE_SOURCES})
 

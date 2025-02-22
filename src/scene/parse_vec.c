@@ -36,9 +36,9 @@ t_rgb	parse_vec3(const char *str)
 	split = ft_split(str, ',');
 	if (split == NULL || array_size(split) != 3)
 		exit_with_error(EXIT_PARSE_ERROR, "parse_vec3: invalid format");
-	vec = double_to_vec3(parse_uint(split[0]), \
-					parse_uint(split[1]), \
-					parse_uint(split[2]));
+	vec = double_to_vec3(parse_double(split[0]), \
+					parse_double(split[1]), \
+					parse_double(split[2]));
 	free_array(split);
 	return (vec);
 }
