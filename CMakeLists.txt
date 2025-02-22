@@ -26,16 +26,16 @@ ExternalProject_Add(
 ExternalProject_Get_Property(minilibx SOURCE_DIR)
 set(MLX_SOURCE_DIR ${SOURCE_DIR})
 
+add_library(mlx STATIC IMPORTED)
+set_property(TARGET mlx PROPERTY IMPORTED_LOCATION ${MLX_SOURCE_DIR}/libmlx.a)
+
 include_directories(include)
 include_directories(libft/includes)
 include_directories(src/list/include)
 include_directories(src/drawing/include)
 include_directories(src/share/include)
 include_directories(/usr/X11/include)
-include_directories(${MLX_SOURCE_DIR})
 
-add_library(mlx STATIC IMPORTED)
-set_property(TARGET mlx PROPERTY IMPORTED_LOCATION ${MLX_SOURCE_DIR}/libmlx.a)
 
 file(GLOB_RECURSE SOURCE_FILES 
     ${CMAKE_SOURCE_DIR}/src/share/*.c
