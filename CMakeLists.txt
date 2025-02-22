@@ -35,6 +35,7 @@ include_directories(src/list/include)
 include_directories(src/drawing/include)
 include_directories(src/share/include)
 include_directories(/usr/X11/include)
+include_directories(${MLX_SOURCE_DIR})
 
 
 file(GLOB_RECURSE SOURCE_FILES 
