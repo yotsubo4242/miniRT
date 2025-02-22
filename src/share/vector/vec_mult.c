@@ -6,11 +6,11 @@
 /*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:02:25 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:17:32 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:34:51 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "vector.h"
 
 t_vec3	vec_mult(double x, t_vec3 v)
 {
