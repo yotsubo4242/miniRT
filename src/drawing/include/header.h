@@ -25,6 +25,7 @@
 # include <limits.h>
 # include <float.h>
 # include <stdbool.h>
+# include "vector.h"
 
 # define WIDTH 1000
 # define HEIGHT 1000

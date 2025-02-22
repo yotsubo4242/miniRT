@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include "../libft/includes/libft.h"
 # include "../src/list/list.h"
+# include "../includes/header.h"
 # include "../src/scene/get_next_line/get_next_line.h"
 # include "vector.h"
 # include <fcntl.h>
@@ -49,14 +50,6 @@ typedef struct s_light_conf
 	t_brightness	brightness;
 }	t_light_conf;
 
-typedef struct s_scene
-{
-	t_ambient_conf	ambient;
-	t_camera_conf	camera;
-	t_light_conf	light;
-	t_list			*objects;
-}	t_scene;
-
 typedef struct s_scene_count
 {
 	unsigned int	ambient;
@@ -81,11 +74,13 @@ double			parse_double(const char *str);
 
 // in_range.c
 bool			is_in_range_double(double value, double min, double max);
+bool			is_in_range_uint(unsigned int value, unsigned int min, unsigned int max);
 
 // parse_uint.c
 unsigned int	parse_uint(const char *str);
 
 // parse_vec.c
+t_rgb			parse_vec3(const char *str);
 t_rgb			parse_rgb(const char *str);
 
 // vector.c

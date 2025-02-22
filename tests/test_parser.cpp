@@ -231,3 +231,22 @@ TEST(ConfigTest, ParseAmbientMissingRatio) {
 TEST(ConfigTest, ParseAmbientMissingColor) {
 	EXPECT_EXIT(parse_ambient("A 0.2"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
 }
+
+// parse_camera
+// expect eq
+TEST(ConfigTest, ParseCamera) {
+	auto line = "C  -50,0,20  0,0,1  70";
+	auto camera = parse_camera(line);
+	expect_vec3(camera.position, -50, 0, 20);
+	expect_vec3(camera.orientation, 0, 0, 1);
+	EXPECT_DOUBLE_EQ(camera.fov, 70);
+}
+
+// expect exit
+TEST(ConfigTest, ParseCameraMissingPosition) {
+	EXPECT_EXIT(parse_camera("C 0,0,0 70"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseCameraMissingFov) {
+	EXPECT_EXIT(parse_camera("C 0,0,0 0,0,0"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}

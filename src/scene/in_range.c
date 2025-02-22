@@ -16,3 +16,8 @@ bool	is_in_range_double(double value, double min, double max)
 {
 	return (min <= value && value <= max);
 }
+
+bool	is_in_range_uint(unsigned int value, unsigned int min, unsigned int max)
+{
+	return (min <= value && value <= max);
+}

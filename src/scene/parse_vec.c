@@ -26,21 +26,39 @@ static size_t	count_char(const char *str, char c)
 	return (count);
 }
 
+t_rgb	parse_vec3(const char *str)
+{
+	char	**split;
+	t_rgb	vec;
+
+	if (count_char(str, ',') != 2)
+		exit_with_error(EXIT_PARSE_ERROR, "parse_vec3: invalid format");
+	split = ft_split(str, ',');
+	if (split == NULL || array_size(split) != 3)
+		exit_with_error(EXIT_PARSE_ERROR, "parse_vec3: invalid format");
+	vec = double_to_vec3(parse_uint(split[0]), \
+					parse_uint(split[1]), \
+					parse_uint(split[2]));
+	free_array(split);
+	return (vec);
+}
+
 t_rgb	parse_rgb(const char *str)
 {
 	char	**split;
-	t_rgb	rgb;
+	t_rgb	vec;
 
 	if (count_char(str, ',') != 2)
 		exit_with_error(EXIT_PARSE_ERROR, "parse_rgb: invalid format");
 	split = ft_split(str, ',');
 	if (split == NULL || array_size(split) != 3)
 		exit_with_error(EXIT_PARSE_ERROR, "parse_rgb: invalid format");
-	rgb = double_to_vec3(parse_uint(split[0]), \
+	vec = double_to_vec3(parse_uint(split[0]), \
 					parse_uint(split[1]), \
 					parse_uint(split[2]));
-	if (rgb_get_r(rgb) > 255 || rgb_get_g(rgb) > 255 || rgb_get_b(rgb) > 255)
+	if (rgb_get_r(vec) > 255 || rgb_get_g(vec) > 255 || rgb_get_b(vec) > 255)
 		exit_with_error(EXIT_PARSE_ERROR,
 			"parse_rgb: value out of range (0-255)");
-	return (rgb);
+	free_array(split);
+	return (vec);
 }
