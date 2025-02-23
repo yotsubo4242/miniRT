@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:32:10 by yotsubo           #+#    #+#             */
-/*   Updated: 2025/02/22 19:07:38 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 15:16:26 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include <math.h>
+# include "libft.h"
 
 typedef struct s_vec3
 {
@@ -31,5 +32,9 @@ bool		vec_eq(t_vec3 a, t_vec3 b);
 t_vec3		vec_minus(t_vec3 a, t_vec3 b);
 t_vec3		vec_mult(double x, t_vec3 v);
 t_vec3		vec_rev(t_vec3 v);
+t_vec3		vec_plus(t_vec3 a, t_vec3 b);
+t_vec3		vec_cross(t_vec3 a, t_vec3 b);
+t_vec3		vec_div(t_vec3 a, double b);
+t_vec3		*vec_dup(t_vec3 a);
 
 #endif 

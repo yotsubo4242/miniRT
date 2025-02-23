@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 16:45:31 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/22 23:26:39 by yotsubo           #+#    #+#             */
+/*   Updated: 2025/02/23 17:31:20 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	my_exit(int keycode, void *param)
+void	cylinder(t_mlx_data *mlx_data, t_scene scene)
 {
-	(void)param;
-	if (keycode == 65307)
-		exit(0);
-	return (0);
-}
+	t_point						pt;
 
-int	main(void)
-{
-	t_mlx_data	*mlx_data;
-	t_scene		scene;
-
-	scene = init_scene();
-	mlx_data = init_mlx();
-	cylinder(mlx_data, scene);
-	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
-							mlx_data->img, 0, 0);
-	mlx_key_hook(mlx_data->win_ptr, my_exit, NULL);
-	mlx_loop(mlx_data->mlx_ptr);
-	return (0);
+	pt.y = 0;
+	while (pt.y < HEIGHT)
+	{
+		pt.x = 0;
+		while (pt.x < WIDTH)
+		{
+			caluc_cylinder(scene, pt, mlx_data);
+			(pt.x)++;
+		}
+		(pt.y)++;
+	}
 }

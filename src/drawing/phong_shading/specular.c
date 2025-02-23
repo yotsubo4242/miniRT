@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:13 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/22 19:08:50 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:15:42 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ double	pl_specular(t_scene scene, double ratio)
 	make_intersection(&intersection, pl_get_t(scene), scene);
 	l = vec_normalize(vec_minus(scene.light, intersection));
 	n = scene.plane_n;
+	if (vec_dot(n, l) < 0)
+		return (0.0);
+	return (caluc_r_s(scene, n, l, ratio));
+}
+
+double	cy_specular(double t, t_vec3 n, t_scene scene, double ratio)
+{
+	t_vec3	intersection;
+	t_vec3	l;
+
+	make_intersection(&intersection, t, scene);
+	l = vec_normalize(vec_minus(scene.light, intersection));
 	if (vec_dot(n, l) < 0)
 		return (0.0);
 	return (caluc_r_s(scene, n, l, ratio));

@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cy_diffuse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:41:09 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 16:45:31 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/23 14:34:54 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/23 17:31:54 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	my_exit(int keycode, void *param)
+double	cy_diffuse(double t, t_vec3 n, t_scene scene, double ratio)
 {
-	(void)param;
-	if (keycode == 65307)
-		exit(0);
-	return (0);
-}
+	t_vec3	l;
+	double	nl;
+	double	r_d;
 
-int	main(void)
-{
-	t_mlx_data	*mlx_data;
-	t_scene		scene;
-
-	scene = init_scene();
-	mlx_data = init_mlx();
-	cylinder(mlx_data, scene);
-	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
-							mlx_data->img, 0, 0);
-	mlx_key_hook(mlx_data->win_ptr, my_exit, NULL);
-	mlx_loop(mlx_data->mlx_ptr);
-	return (0);
+	l = vec_normalize(vec_minus(scene.light, \
+					vec_plus(scene.camera, vec_mult(t, scene.ray))));
+	nl = vec_dot(n, l);
+	if (nl < 0)
+		nl = vec_dot(vec_rev(n), l);
+	r_d = vec_dot(l, n) * KD * ratio;
+	if (r_d < 0)
+		r_d = 0.0;
+	return (r_d);
 }

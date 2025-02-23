@@ -6,7 +6,11 @@ SRCS = ./vector/vec_dot.c \
 		./vector/vec_minus.c \
 		./vector/vec_mult.c \
 		./vector/vec_normalize.c \
-		./vector/vec_rev.c
+		./vector/vec_rev.c \
+		./vector/vec_plus.c \
+		./vector/vec_cross.c \
+		./vector/vec_div.c \
+		./vector/vec_dup.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./include -I../../libmlx -I../../libft
 CC = cc -g
