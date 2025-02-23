@@ -6,6 +6,7 @@ SRC_DIR := src/list src/scene
 OBJ_DIR := obj
 
 LIBFT := libft/libft.a
+SHARE := src/share/libshare.a
 
 CFLAGS := -Wall -Wextra -Werror
 
@@ -26,22 +27,27 @@ all : $(NAME)
 debug: CFLAGS+=$(DEBUG_FLAGS)
 debug: $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJ)
+$(NAME) : $(SHARE) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+$(SHARE):
+	make -C src/share
+
 $(LIBFT):
 	make -C libft
 
 clean :
 	make -C libft clean
+	make -C src/share clean
 	rm -rf $(OBJ_DIR)
 
 fclean : clean
 	make -C libft fclean
+	make -C src/share fclean
 	$(RM) $(NAME)
 
 re : fclean all
