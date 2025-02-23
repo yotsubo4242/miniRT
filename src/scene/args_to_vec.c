@@ -22,7 +22,7 @@ t_vec3	double_to_vec3(double x, double y, double z)
 	return (ret);
 }
 
-t_color	double_to_color(double x, double y, double z)
+t_color	uint_to_color(unsigned int x, unsigned int y, unsigned int z)
 {
 	t_color	ret;
 

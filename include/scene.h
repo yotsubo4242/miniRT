@@ -29,7 +29,7 @@ typedef double	t_brightness;
 
 # define EXIT_PARSE_ERROR 2
 
-typedef struct s_struct
+typedef struct s_color
 {
 	int			r;
 	int			g;
@@ -103,7 +103,7 @@ t_color			parse_rgb(const char *str);
 
 // double_to.c
 t_vec3			double_to_vec3(double x, double y, double z);
-t_color			double_to_color(double x, double y, double z);
+t_color			uint_to_color(unsigned int x, unsigned int y, unsigned int z);
 
 // getter_rgb.c
 double			rgb_get_r(t_color a);

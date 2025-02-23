@@ -53,7 +53,7 @@ t_color	parse_rgb(const char *str)
 	split = ft_split(str, ',');
 	if (split == NULL || array_size(split) != 3)
 		exit_with_error(EXIT_PARSE_ERROR, "parse_rgb: invalid format");
-	vec = double_to_color(parse_uint(split[0]), \
+	vec = uint_to_color(parse_uint(split[0]), \
 					parse_uint(split[1]), \
 					parse_uint(split[2]));
 	if (rgb_get_r(vec) > 255 || rgb_get_g(vec) > 255 || rgb_get_b(vec) > 255)
