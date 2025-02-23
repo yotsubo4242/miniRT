@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt-get install cmake libx11-dev libxext-dev
+        run: sudo apt-get install cmake libx11-dev
       - name: Cmake, make makefile in build
         run: cmake -S . -B build 
       - name: Build, run make command in build dir
