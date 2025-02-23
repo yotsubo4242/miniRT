@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:21 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 19:08:41 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:28:15 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,6 @@ void	make_intersection(t_vec3 *intersection, double t, t_scene scene)
 	intersection->x = scene.camera.x + t * scene.ray.x;
 	intersection->y = scene.camera.y + t * scene.ray.y;
 	intersection->z = scene.camera.z + t * scene.ray.z;
-}
-
-double	pl_get_t(t_scene scene)
-{
-	double	t;
-	double	dn;
-
-	dn = vec_dot(scene.ray, scene.plane_n);
-	if (dn == 0)
-		return (0);
-	t = (vec_dot(scene.plane, scene.plane_n) \
-			- vec_dot(scene.camera, scene.plane_n)) \
-			/ vec_dot(scene.ray, scene.plane_n);
-	return (t);
 }
 
 double	diffuse(t_scene scene, double ratio)
