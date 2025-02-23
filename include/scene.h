@@ -18,9 +18,9 @@
 # include "../libft/includes/libft.h"
 # include "../src/list/list.h"
 # include "../src/scene/get_next_line/get_next_line.h"
-# include "vector.h"
 # include <fcntl.h>
 # include <errno.h>
+# include "../src/share/include/vector.h"
 
 typedef double	t_radian;
 typedef double	t_degree;
@@ -28,6 +28,8 @@ typedef double	t_ratio;
 typedef double	t_brightness;
 
 # define EXIT_PARSE_ERROR 2
+
+typedef t_vec3	t_rgb;
 
 typedef struct s_ambient_conf
 {
@@ -49,6 +51,13 @@ typedef struct s_light_conf
 	t_brightness	brightness;
 }	t_light_conf;
 
+typedef struct s_scene_count
+{
+	unsigned int	ambient;
+	unsigned int	camera;
+	unsigned int	light;
+}	t_scene_count;
+
 typedef struct s_scene
 {
 	t_ambient_conf	ambient;
@@ -57,18 +66,14 @@ typedef struct s_scene
 	t_list			*objects;
 }	t_scene;
 
-typedef struct s_scene_count
-{
-	unsigned int	ambient;
-	unsigned int	camera;
-	unsigned int	light;
-}	t_scene_count;
-
 int				plus(int a, int b);
 void			exit_with_error(int status, const char *message);
 t_scene			*parse_scene(const char *path);
 t_scene			*new_scene(void);
+
+// parse_env.c
 t_ambient_conf	parse_ambient(const char *line);
+t_camera_conf	parse_camera(const char *line);
 
 // utils.c
 char			**split_space(const char *str);
@@ -81,11 +86,14 @@ double			parse_double(const char *str);
 
 // in_range.c
 bool			is_in_range_double(double value, double min, double max);
+bool			is_in_range_uint(unsigned int value, unsigned int min, \
+						unsigned int max);
 
 // parse_uint.c
 unsigned int	parse_uint(const char *str);
 
 // parse_vec.c
+t_rgb			parse_vec3(const char *str);
 t_rgb			parse_rgb(const char *str);
 
 // vector.c

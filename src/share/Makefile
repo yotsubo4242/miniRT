@@ -11,14 +11,15 @@ OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./include -I../../libmlx -I../../libft
 CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
+LDLIBS := -lm
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) rc $(NAME) $(OBJS)
+	$(AR) rc $(NAME) $(OBJS) $(LDLIBS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES)  -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

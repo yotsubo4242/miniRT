@@ -23,6 +23,7 @@ static t_scene	*parse_line(t_scene *scene, t_scene_count *scene_count, \
 	}
 	else if (*line == 'C')
 	{
+		scene->camera = parse_camera(line);
 		++(scene_count->camera);
 	}
 	else if (*line == 'L')
