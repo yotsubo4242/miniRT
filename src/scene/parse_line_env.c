@@ -58,3 +58,25 @@ t_camera_conf	parse_camera(const char *line)
 	free_array(split);
 	return (conf);
 }
+
+t_light_conf	parse_light(const char *line)
+{
+	char			**split;
+	double			brightness;
+	t_light_conf	conf;
+
+	if (!line || *line != 'L')
+		exit_with_error(EXIT_PARSE_ERROR, "light: invalid type");
+	ft_bzero(&conf, sizeof(conf));
+	split = split_space(line);
+	if (array_size(split) != 4)
+		exit_with_error(EXIT_PARSE_ERROR, "light: invalid format");
+	brightness = parse_double(split[2]);
+	if (!is_in_range_uint(brightness, 0, 1))
+		exit_with_error(EXIT_FAILURE, "light: invalid value");
+	conf.position = parse_vec3(split[1]);
+	conf.brightness = brightness;
+	conf.color = parse_rgb(split[3]);
+	free_array(split);
+	return (conf);
+}
