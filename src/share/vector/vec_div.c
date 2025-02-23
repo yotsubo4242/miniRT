@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normalize.c                                        :+:      :+:    :+:   */
+/*   vec_div.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 14:34:59 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/18 14:35:09 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/23 17:36:33 by yuotsubo          #+#    #+#             */
+/*   Updated: 2025/02/23 17:43:38 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-t_vec3	normalize(t_vec3 a)
+t_vec3	vec_div(t_vec3 a, double b)
 {
-	double	magnitude;
+	t_vec3	res;
 
-	magnitude = mag(a);
-	a.x /= magnitude;
-	a.y /= magnitude;
-	a.z /= magnitude;
-	return (a);
+	res.x = a.x / b;
+	res.y = a.y / b;
+	res.z = a.z / b;
+	return (res);
 }

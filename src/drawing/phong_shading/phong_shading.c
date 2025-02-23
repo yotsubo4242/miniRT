@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:12:42 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/22 19:08:43 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 17:35:30 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	pl_phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene)
 }
 
 void	phong_shading(t_mlx_data *mlx_data, t_point pt, \
-						t_scene scene, t_solve_quadratic_equation qe)
+							t_scene scene, t_solve_quadratic_equation qe)
 {
 	double	r_a;
 	double	r_d;
@@ -47,4 +47,23 @@ void	phong_shading(t_mlx_data *mlx_data, t_point pt, \
 	scene.sphere_color.b = (int)(scene.sphere_color.b * r);
 	my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
 					convert_color_to_hex(scene.sphere_color));
+}
+
+void	cy_phong_shading(t_mlx_data *mlx_data, t_point pt, \
+						t_scene scene, t_trush trush)
+{
+	double	r_a;
+	double	r_d;
+	double	r_s;
+	double	r;
+
+	r_a = ambient(0.8);
+	r_d = cy_diffuse(trush.t, *(trush.n), scene, 1.0);
+	r_s = cy_specular(trush.t, *(trush.n), scene, 1.0);
+	r = r_a + r_d + r_s;
+	scene.cylinder.color.r = (int)(scene.cylinder.color.r * r);
+	scene.cylinder.color.g = (int)(scene.cylinder.color.g * r);
+	scene.cylinder.color.b = (int)(scene.cylinder.color.b * r);
+	my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
+					convert_color_to_hex(scene.cylinder.color));
 }

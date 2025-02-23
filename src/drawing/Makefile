@@ -4,6 +4,8 @@ LIBFT = ../../libft/libft.a
 SRCS = main.c \
 	./draw/sphere.c \
 	./draw/plane.c \
+	./draw/cylinder_utils.c \
+	./draw/cylinder.c \
 	./error/err_init_mlx.c \
 	./init/init_mlx.c \
 	./init/init_scene.c \
@@ -12,6 +14,7 @@ SRCS = main.c \
 	./utils/my_mlx_pixel_put.c \
 	./utils/convert_color_to_hex.c \
 	./phong_shading/ambient.c \
+	./phong_shading/cy_diffuse.c \
 	./phong_shading/diffuse.c \
 	./phong_shading/specular.c \
 	./phong_shading/phong_shading.c

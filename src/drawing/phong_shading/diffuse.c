@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   diffuse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:21 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/21 16:15:14 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/23 15:31:41 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ double	get_t(t_solve_quadratic_equation qe)
 	{
 		t1 = (-qe.b + sqrt(qe.d)) / (2 * qe.a);
 		t2 = (-qe.b - sqrt(qe.d)) / (2 * qe.a);
+		if (t1 < 0 && t2 < 0)
+			return (0.0);
 		if (t1 < 0)
-			t1 = DBL_MAX;
+			return (t2);
 		if (t2 < 0)
-			t2 = DBL_MAX;
+			return (t1);
 		if (t1 < t2)
 			t = t1;
 		else if (t2 < t1)
