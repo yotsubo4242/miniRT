@@ -296,3 +296,25 @@ TEST(ConfigTest, ParseCameraMissingPosition) {
 TEST(ConfigTest, ParseCameraMissingFov) {
 	EXPECT_EXIT(parse_camera("C 0,0,0 0,0,0"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
 }
+
+// parse_light
+TEST(ConfigTest, ParseLight) {
+	auto line = "L  -40,0,30  0.7  255,255,255";
+	auto light = parse_light(line);
+	expect_vec3(light.position, -40, 0, 30);
+	EXPECT_DOUBLE_EQ(light.brightness, 0.7);
+	expect_color(light.color, 255, 255, 255);
+}
+
+// expect exit
+TEST(ConfigTest, ParseLightMissingPosition) {
+	EXPECT_EXIT(parse_light("L 0.7 255,255,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseLightMissingBrightness) {
+	EXPECT_EXIT(parse_light("L 0,0,0 255,255,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParseLightMissingColor) {
+	EXPECT_EXIT(parse_light("L 0,0,0 0.7"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
