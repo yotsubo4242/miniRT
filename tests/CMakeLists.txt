@@ -13,9 +13,10 @@ FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/libft/include)
-include_directories(${CMAKE_SOURCE_DIR}/src/list/include)
+include_directories(${CMAKE_SOURCE_DIR}/libft/includes)
+include_directories(${CMAKE_SOURCE_DIR}/src/list)
 include_directories(${CMAKE_SOURCE_DIR}/src/share/include)
+include_directories(${CMAKE_SOURCE_DIR}/src/scene/get_next_line)
 
 # build scene library
 file(GLOB_RECURSE SCENE_SOURCES 

@@ -15,12 +15,12 @@
 
 # include <stdbool.h>
 # include <stdio.h>
-# include "../libft/includes/libft.h"
-# include "../src/list/list.h"
-# include "../src/scene/get_next_line/get_next_line.h"
+# include "libft.h"
+# include "list.h"
+# include "get_next_line.h"
 # include <fcntl.h>
 # include <errno.h>
-# include "../src/share/include/vector.h"
+# include "vector.h"
 
 typedef double	t_radian;
 typedef double	t_degree;
@@ -29,12 +29,17 @@ typedef double	t_brightness;
 
 # define EXIT_PARSE_ERROR 2
 
-typedef t_vec3	t_rgb;
+typedef struct s_struct
+{
+	int			r;
+	int			g;
+	int			b;
+}	t_color;
 
 typedef struct s_ambient_conf
 {
 	t_ratio	ratio;
-	t_rgb	color;
+	t_color	color;
 }	t_ambient_conf;
 
 typedef struct s_camera_conf
@@ -47,7 +52,7 @@ typedef struct s_camera_conf
 typedef struct s_light_conf
 {
 	t_vec3			position;
-	t_rgb			color;
+	t_color			color;
 	t_brightness	brightness;
 }	t_light_conf;
 
@@ -93,14 +98,15 @@ bool			is_in_range_uint(unsigned int value, unsigned int min, \
 unsigned int	parse_uint(const char *str);
 
 // parse_vec.c
-t_rgb			parse_vec3(const char *str);
-t_rgb			parse_rgb(const char *str);
+t_vec3			parse_vec3(const char *str);
+t_color			parse_rgb(const char *str);
 
-// vector.c
+// double_to.c
 t_vec3			double_to_vec3(double x, double y, double z);
+t_color			double_to_color(double x, double y, double z);
 
 // getter_rgb.c
-double			rgb_get_r(t_rgb a);
-double			rgb_get_g(t_rgb a);
-double			rgb_get_b(t_rgb a);
+double			rgb_get_r(t_color a);
+double			rgb_get_g(t_color a);
+double			rgb_get_b(t_color a);
 #endif

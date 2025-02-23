@@ -21,3 +21,13 @@ t_vec3	double_to_vec3(double x, double y, double z)
 	ret.z = z;
 	return (ret);
 }
+
+t_color	double_to_color(double x, double y, double z)
+{
+	t_color	ret;
+
+	ret.r = x;
+	ret.g = y;
+	ret.b = z;
+	return (ret);
+}
