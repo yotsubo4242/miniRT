@@ -79,6 +79,7 @@ t_scene			*new_scene(void);
 // parse_env.c
 t_ambient_conf	parse_ambient(const char *line);
 t_camera_conf	parse_camera(const char *line);
+t_light_conf	parse_light(const char *line);
 
 // utils.c
 char			**split_space(const char *str);
