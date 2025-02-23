@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:48:52 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 00:55:56 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/02/23 19:16:03 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,33 @@ static void	caluc_qe(t_solve_quadratic_equation *qe, t_scene scene)
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }
 
+static bool	sp_get_t(t_solve_quadratic_equation qe, double *t)
+{
+	double	t1;
+	double	t2;
+
+	if (qe.d < 0)
+		return (false);
+	if (qe.d == 0)
+		*t = -qe.b / (2 * qe.a);
+	else if (qe.d > 0)
+	{
+		t1 = (-qe.b + sqrt(qe.d)) / (2 * qe.a);
+		t2 = (-qe.b - sqrt(qe.d)) / (2 * qe.a);
+		if (t1 < 0 && t2 < 0)
+			return (false);
+		if (t1 < 0)
+			*t = t2;
+		else if (t2 < 0)
+			*t = t1;
+		else if (t1 < t2)
+			*t = t1;
+		else if (t2 < t1)
+			*t = t2;
+	}
+	return (true);
+}
+
 void	sphere(t_mlx_data *mlx_data, t_scene scene)
 {
 	t_point						pt;
@@ -38,11 +65,19 @@ void	sphere(t_mlx_data *mlx_data, t_scene scene)
 			scene.screen = caluc_screen_point(pt.x, pt.y);
 			scene.ray = caluc_ray(scene.screen);
 			caluc_qe(&qe, scene);
-			if (qe.d < 0)
+			if (qe.d < 0 || !sp_get_t(qe, &(scene.t)))
+			{
 				my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
 							convert_color_to_hex(scene.scene_color));
+			}
 			else
-				phong_shading(mlx_data, pt, scene, qe);
+			{
+				scene.inter = get_inter(scene.t, scene);
+				scene.n = vec_normalize( \
+						vec_minus(scene.inter, scene.sphere.sphere));
+				// こいつ今double
+				phong_shading(mlx_data, pt, scene);
+			}
 			(pt.x)++;
 		}
 		(pt.y)++;

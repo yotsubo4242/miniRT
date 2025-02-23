@@ -2,6 +2,7 @@
 NAME = testdrawing
 LIBFT = ../../libft/libft.a
 SRCS = main.c \
+	./draw/get_inter.c \
 	./draw/sphere.c \
 	./draw/plane.c \
 	./draw/cylinder_utils.c \

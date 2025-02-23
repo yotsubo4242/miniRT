@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 17:35:46 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:13:59 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,33 @@ typedef struct s_cylinder
 	t_color	color;
 }	t_cylinder;
 
+typedef struct s_sphere
+{
+	t_vec3	sphere;
+	t_color	sphere_color;
+}	t_sphere;
+
+typedef struct s_plane
+{
+	t_vec3		plane;
+	t_vec3		plane_n;
+	t_color		plane_color;
+}	t_plane;
+
 typedef struct s_scene
 {
 	t_vec3		screen;
 	t_vec3		ray;
 	t_vec3		camera;
-	t_vec3		sphere;
-	t_vec3		plane;
-	t_vec3		plane_n;
 	t_vec3		light;
 	t_cylinder	cylinder;
-	t_color		sphere_color;
-	t_color		plane_color;
+	t_plane		plane;
+	t_sphere	sphere;
 	t_color		scene_color;
+	t_color		obj_color;
+	t_vec3		n;
+	t_vec3		inter;
+	double		t;
 }				t_scene;
 
 typedef struct s_trush
@@ -122,6 +136,12 @@ typedef enum e_init_mlx_err {
 	MLX_GET_DATA_ADDR
 }	t_init_mlx_err;
 
+typedef enum e_obj_type {
+	SPHERE,
+	PLANE,
+	CYLINDER
+}	t_obj_type;
+
 //draw
 void		sphere(t_mlx_data *mlx_data, t_scene scene);
 //error
@@ -137,12 +157,12 @@ int			convert_color_to_hex(t_color color);
 // phong_shading
 void		make_intersection(t_vec3 *intersection, double t, t_scene scene);
 double		get_t(t_solve_quadratic_equation qe);
-void		phong_shading(t_mlx_data *mlx_data, t_point pt, \
-							t_scene scene, t_solve_quadratic_equation qe);
-double		diffuse(t_solve_quadratic_equation qe, t_scene scene, double ratio);
+double		phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene);
+double		diffuse(t_scene scene, double ratio);
 double		ambient(double ratio);
-double		specular(t_solve_quadratic_equation qe, \
-						t_scene scene, double ratio);
+double		specular(t_scene scene, double ratio);
+
+t_vec3		get_inter(double t, t_scene scene);
 
 void		plane(t_mlx_data *mlx_data, t_scene scene);
 double		pl_get_t(t_scene scene);
