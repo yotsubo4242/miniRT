@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:48:52 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 19:59:34 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 20:06:04 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static bool	sp_get_t(t_solve_quadratic_equation qe, double *t)
 
 static void	caluc_sphere(t_mlx_data *mlx_data, t_scene scene, t_point pt)
 {
-	t_solve_quadratic_equation qe;
+	t_solve_quadratic_equation	qe;
 
 	scene.screen = caluc_screen_point(pt.x, pt.y);
 	scene.ray = caluc_ray(scene.screen);
