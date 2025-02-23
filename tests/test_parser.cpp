@@ -11,6 +11,12 @@ void expect_vec3(t_vec3 vec, double x, double y, double z) {
 	EXPECT_NEAR(vec.z, z, epsilon);
 }
 
+void expect_color(t_color rgb, int r, int g, int b){
+	EXPECT_EQ(rgb.r, r);
+	EXPECT_EQ(rgb.g, g);
+	EXPECT_EQ(rgb.b, b);
+}
+
 // is_valid_double
 // exept true
 TEST(ConfigTest, IsValidDouble_valid1) {
@@ -214,18 +220,18 @@ TEST(ConfigTest, ParseVec3Space) {
 }
 
 TEST(ConfigTest, ParseRgb) {
-	t_rgb rgb = parse_rgb("1,2,3");
-	expect_vec3(rgb, 1, 2, 3);
+	t_color rgb = parse_rgb("1,2,3");
+	expect_color(rgb, 1, 2, 3);
 }
 
 TEST(ConfigTest, ParseRgbMax) {
-	t_rgb rgb = parse_rgb("255,255,255");
-	expect_vec3(rgb, 255, 255, 255);
+	t_color rgb = parse_rgb("255,255,255");
+	expect_color(rgb, 255, 255, 255);
 }
 
 TEST(ConfigTest, ParseRgbZero) {
-	t_rgb rgb = parse_rgb("0,0,0");
-	expect_vec3(rgb, 0, 0, 0);
+	t_color rgb = parse_rgb("0,0,0");
+	expect_color(rgb, 0, 0, 0);
 }
 
 // parse_rgb
@@ -260,7 +266,7 @@ TEST(ConfigTest, ParseAmbient) {
 	auto line = "A  0.2  255,255,255";
 	auto ambient = parse_ambient(line);
 	EXPECT_DOUBLE_EQ(ambient.ratio, 0.2);
-	expect_vec3(ambient.color, 255, 255, 255);
+	expect_color(ambient.color, 255, 255, 255);
 }
 
 // expect exit

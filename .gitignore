@@ -7,3 +7,4 @@ Testing/
 *.log
 .vscode
 testdrawing
+.gitignore

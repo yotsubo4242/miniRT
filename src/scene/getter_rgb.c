@@ -12,17 +12,17 @@
 
 #include "scene.h"
 
-double	rgb_get_r(t_rgb a)
+double	rgb_get_r(t_color a)
 {
-	return (a.x);
+	return (a.r);
 }
 
-double	rgb_get_g(t_rgb a)
+double	rgb_get_g(t_color a)
 {
-	return (a.y);
+	return (a.g);
 }
 
-double	rgb_get_b(t_rgb a)
+double	rgb_get_b(t_color a)
 {
-	return (a.z);
+	return (a.b);
 }
