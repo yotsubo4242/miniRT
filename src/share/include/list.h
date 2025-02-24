@@ -29,7 +29,6 @@ typedef struct s_list
 	size_t			size;
 }					t_list;
 
-
 t_node	*creat_node(void *data);
 t_node	*push_back_list(t_list *list, void *data);
 t_list	*create_list(void);
