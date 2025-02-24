@@ -61,7 +61,7 @@ typedef struct s_sphere_conf
 	t_vec3			center;
 	double			radius;
 	t_color			color;
-}					t_sphere_conf;
+}	t_sphere_conf;
 
 typedef enum e_object_type
 {
@@ -130,4 +130,10 @@ t_color			uint_to_color(unsigned int x, unsigned int y, unsigned int z);
 double			rgb_get_r(t_color a);
 double			rgb_get_g(t_color a);
 double			rgb_get_b(t_color a);
+
+// parse_object.c
+t_object	*parse_object(const char *line);
+
+// parse_each_object.c
+t_sphere_conf	parse_sphere(const char *line);
 #endif

@@ -20,7 +20,7 @@ static void	init_object(t_object *object, t_object_type type, size_t size)
 
 static void	parse_object_conf(t_object *object, const char *line)
 {
-	if (ft_strncmp(line, "sp", 2) == 0)
+	if (!ft_strncmp(line, "sp", 2))
 	{
 		init_object(object, OBJ_SPHERE, sizeof(t_sphere_conf));
 		*(t_sphere_conf *)object->conf = parse_sphere(line);
@@ -45,4 +45,5 @@ t_object	*parse_object(const char *line)
 	
 	object = ft_calloc(1, sizeof(t_object));
 	parse_object_conf(object, line);
+	return (object);
 }

@@ -18,12 +18,12 @@ t_sphere_conf	parse_sphere(const char *line)
 	char			**split;
 	t_sphere_conf	conf;
 
-	if (!line || !ft_strncmp(line, "sp", 2))
-		exit_with_error(EXIT_PARSE_ERROR, "invalid type");
+	if (!line || ft_strncmp(line, "sp", 2))
+		exit_with_error(EXIT_PARSE_ERROR, "sphere: invalid type");
 	split = split_space(line);
 	if (array_size(split) != 4)
 		exit_with_error(EXIT_PARSE_ERROR, "sphere: invalid format");
-	conf.center =parse_vec3(split[1]);
+	conf.center = parse_vec3(split[1]);
 	conf.radius = parse_double(split[2]) / 2;
 	conf.color = parse_rgb(split[3]);
 	if (conf.radius <= 0)
@@ -31,4 +31,3 @@ t_sphere_conf	parse_sphere(const char *line)
 	free_array(split);
 	return (conf);
 }
-

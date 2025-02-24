@@ -318,3 +318,28 @@ TEST(ConfigTest, ParseLightMissingBrightness) {
 TEST(ConfigTest, ParseLightMissingColor) {
 	EXPECT_EXIT(parse_light("L 0,0,0 0.7"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
 }
+
+// parse_sphere
+// expect eq
+TEST(ConfigTest, ParseSphere) {
+	auto line = "sp  -30,0,40  20  255,255,255";
+	auto sphere = parse_sphere(line);
+	expect_vec3(sphere.center, -30, 0, 40);
+	EXPECT_DOUBLE_EQ(sphere.radius, 10);
+	expect_color(sphere.color, 255, 255, 255);
+}
+
+// expect exit
+TEST(ConfigTest, ParseSphereMissingCenter) {
+	EXPECT_EXIT(parse_sphere("sp 20 255,255,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+// expect exit
+TEST(ConfigTest, ParseSphereMissingDiameter) {
+	EXPECT_EXIT(parse_sphere("sp 0,0,0 255,255,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+// expect exit
+TEST(ConfigTest, ParseSphereMissingColor) {
+	EXPECT_EXIT(parse_sphere("sp 0,0,0 20"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
