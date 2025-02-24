@@ -132,7 +132,7 @@ double			rgb_get_g(t_color a);
 double			rgb_get_b(t_color a);
 
 // parse_object.c
-t_object	*parse_object(const char *line);
+t_object		*parse_object(const char *line);
 
 // parse_each_object.c
 t_sphere_conf	parse_sphere(const char *line);

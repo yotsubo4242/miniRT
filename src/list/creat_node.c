@@ -12,7 +12,7 @@
 
 #include "scene.h"
 
-t_node *creat_node(void *data)
+t_node	*creat_node(void *data)
 {
 	t_node	*node;
 
