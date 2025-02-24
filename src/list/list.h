@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 21:29:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/18 21:38:25 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:27:37 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ typedef struct s_list
 }					t_list;
 
 t_list	*create_list(void);
+t_node	*creat_node(void *data);
+t_node	*push_back_list(t_list *list, void *data);
 
 #endif
