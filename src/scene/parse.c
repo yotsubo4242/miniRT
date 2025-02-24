@@ -31,6 +31,8 @@ static t_scene	*parse_line(t_scene *scene, t_scene_count *scene_count, \
 		scene->light = parse_light(line);
 		++(scene_count->light);
 	}
+	else
+		push_back_list(scene->objects, parse_object(line));
 	return (scene);
 }
 

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   creat_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 18:28:09 by yuotsubo          #+#    #+#             */
-/*   Updated: 2024/04/18 22:00:56 by yuotsubo         ###   ########.fr       */
+/*   Created: 2025/02/24 13:23:26 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/24 13:26:47 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "scene.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_node	*creat_node(void *data)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	t_node	*node;
+
+	node = ft_calloc(1, sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->data = data;
+	return (node);
 }

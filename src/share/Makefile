@@ -10,9 +10,13 @@ SRCS = ./vector/vec_dot.c \
 		./vector/vec_plus.c \
 		./vector/vec_cross.c \
 		./vector/vec_div.c \
-		./vector/vec_dup.c
+		./vector/vec_dup.c \
+		./list/creat_list.c \
+		./list/creat_node.c \
+		./list/push_back_list.c
+
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I./include -I../../libmlx -I../../libft
+INCLUDES = -I./include -I../../libmlx -I../../libft/includes -I../../include -I../scene/get_next_line
 CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
 LDLIBS := -lm

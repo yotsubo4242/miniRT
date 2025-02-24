@@ -6,7 +6,7 @@
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/20 17:06:17 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:19:36 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,26 @@ typedef struct s_light_conf
 	t_color			color;
 	t_brightness	brightness;
 }	t_light_conf;
+
+typedef struct s_sphere_conf
+{
+	t_vec3			center;
+	double			radius;
+	t_color			color;
+}	t_sphere_conf;
+
+typedef enum e_object_type
+{
+	OBJ_SPHERE,
+	OBJ_PLANE,
+	OBJ_CYLINDER
+}	t_object_type;
+
+typedef struct s_object
+{
+	t_object_type	type;
+	void			*conf;
+}	t_object;
 
 typedef struct s_scene_count
 {
@@ -110,4 +130,10 @@ t_color			uint_to_color(unsigned int x, unsigned int y, unsigned int z);
 double			rgb_get_r(t_color a);
 double			rgb_get_g(t_color a);
 double			rgb_get_b(t_color a);
+
+// parse_object.c
+t_object		*parse_object(const char *line);
+
+// parse_each_object.c
+t_sphere_conf	parse_sphere(const char *line);
 #endif
