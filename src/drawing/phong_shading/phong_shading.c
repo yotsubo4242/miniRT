@@ -6,64 +6,54 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:12:42 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 17:35:30 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:53:17 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	pl_phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene)
+static t_color	drawing(t_scene scene, t_obj_type type)
 {
-	double	r_a;
-	double	r_d;
-	double	r_s;
-	double	r;
+	t_color	color;
 
-	r_a = ambient(0.8);
-	r_d = pl_diffuse(scene, 1.0);
-	r_s = pl_specular(scene, 1.0);
-	r = r_a + r_d + r_s;
-	scene.plane_color.r = (int)(scene.plane_color.r * r);
-	scene.plane_color.g = (int)(scene.plane_color.g * r);
-	scene.plane_color.b = (int)(scene.plane_color.b * r);
-	my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
-					convert_color_to_hex(scene.plane_color));
+	color.r = 0;
+	color.g = 0;
+	color.b = 0;
+	if (type == SPHERE)
+	{
+		color.r = scene.sphere.sphere_color.r * scene.r;
+		color.g = scene.sphere.sphere_color.g * scene.r;
+		color.b = scene.sphere.sphere_color.b * scene.r;
+	}
+	else if (type == PLANE)
+	{
+		color.r = scene.plane.plane_color.r * scene.r;
+		color.g = scene.plane.plane_color.g * scene.r;
+		color.b = scene.plane.plane_color.b * scene.r;
+	}
+	else if (type == CYLINDER)
+	{
+		color.r = scene.cylinder.color.r * scene.r;
+		color.g = scene.cylinder.color.g * scene.r;
+		color.b = scene.cylinder.color.b * scene.r;
+	}
+	return (color);
 }
 
-void	phong_shading(t_mlx_data *mlx_data, t_point pt, \
-							t_scene scene, t_solve_quadratic_equation qe)
+void	phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene, \
+					t_obj_type type)
 {
 	double	r_a;
 	double	r_d;
 	double	r_s;
-	double	r;
-
-	r_a = ambient(0.1);
-	r_d = diffuse(qe, scene, 1.0);
-	r_s = specular(qe, scene, 1.0);
-	r = r_a + r_d + r_s;
-	scene.sphere_color.r = (int)(scene.sphere_color.r * r);
-	scene.sphere_color.g = (int)(scene.sphere_color.g * r);
-	scene.sphere_color.b = (int)(scene.sphere_color.b * r);
-	my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
-					convert_color_to_hex(scene.sphere_color));
-}
-
-void	cy_phong_shading(t_mlx_data *mlx_data, t_point pt, \
-						t_scene scene, t_trush trush)
-{
-	double	r_a;
-	double	r_d;
-	double	r_s;
-	double	r;
+	t_color	color;
 
 	r_a = ambient(0.8);
-	r_d = cy_diffuse(trush.t, *(trush.n), scene, 1.0);
-	r_s = cy_specular(trush.t, *(trush.n), scene, 1.0);
-	r = r_a + r_d + r_s;
-	scene.cylinder.color.r = (int)(scene.cylinder.color.r * r);
-	scene.cylinder.color.g = (int)(scene.cylinder.color.g * r);
-	scene.cylinder.color.b = (int)(scene.cylinder.color.b * r);
-	my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
-					convert_color_to_hex(scene.cylinder.color));
+	r_d = diffuse(scene, 1.0);
+	r_s = specular(scene, 1.0);
+	scene.r = r_a + r_d + r_s;
+	if (scene.r > 1)
+		scene.r = 1;
+	color = drawing(scene, type);
+	my_mlx_pixel_put(mlx_data, pt.x, pt.y, convert_color_to_hex(color));
 }

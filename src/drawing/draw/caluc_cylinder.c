@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cylinder_utils.c                                   :+:      :+:    :+:   */
+/*   caluc_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:26:10 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 17:34:50 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:57:52 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,23 +83,27 @@ void	caluc_cylinder(t_scene scene, t_point pt, t_mlx_data *mlx_data)
 {
 	t_solve_quadratic_equation	qe;
 	t_vec3						dxn;
-	t_trush						trush;
+	t_vec3						*n;
 
 	scene.screen = caluc_screen_point(pt.x, pt.y);
 	scene.ray = caluc_ray(scene.screen);
 	caluc_qe(&qe, scene);
 	dxn = vec_cross(scene.ray, scene.cylinder.axis);
-	trush.n = cy_make_n(qe, scene, &(trush.t));
-	if (trush.n == NULL)
+	n = cy_make_n(qe, scene, &(scene.t));
+	if (n == NULL)
+	{
 		my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
 					convert_color_to_hex(scene.scene_color));
-	else if (vec_dot(dxn, dxn) == 0)
+		return ;
+	}
+	scene.n = *n;
+	if (vec_dot(dxn, dxn) == 0)
 		my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
 					convert_color_to_hex(scene.scene_color));
 	else if (qe.d < 0)
 		my_mlx_pixel_put(mlx_data, pt.x, pt.y, \
 					convert_color_to_hex(scene.scene_color));
 	else
-		cy_phong_shading(mlx_data, pt, scene, trush);
-	free(trush.n);
+		phong_shading(mlx_data, pt, scene, CYLINDER);
+	free(n);
 }
