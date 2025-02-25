@@ -343,3 +343,21 @@ TEST(ConfigTest, ParseSphereMissingDiameter) {
 TEST(ConfigTest, ParseSphereMissingColor) {
 	EXPECT_EXIT(parse_sphere("sp 0,0,0 20"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
 }
+
+// parse_plane
+TEST(ConfigTest, ParsePlane) {
+	auto line = "pl  0,1,0  0,0,1  255,255,255";
+	auto plane = parse_plane(line);
+	expect_vec3(plane.point, 0, 1, 0);
+	expect_vec3(plane.normal, 0, 0, 1);
+	expect_color(plane.color, 255, 255, 255);
+}
+
+// expect exit
+TEST(ConfigTest, ParsePlaneMissingPoint) {
+	EXPECT_EXIT(parse_plane("pl 0,0,1 255,255,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+TEST(ConfigTest, ParsePlaneMissingColor) {
+	EXPECT_EXIT(parse_plane("pl 0,1,0 0,0,1"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}

@@ -31,3 +31,23 @@ t_sphere_conf	parse_sphere(const char *line)
 	free_array(split);
 	return (conf);
 }
+
+// pl [point] [normal] [color]
+t_plane_conf	parse_plane(const char *line)
+{
+	char				**split;
+	t_plane_conf		conf;
+
+	if (!line || ft_strncmp(line, "pl", 2))
+		exit_with_error(EXIT_PARSE_ERROR, "plane: invalid type");
+	split = split_space(line);
+	if (array_size(split) != 4)
+		exit_with_error(EXIT_PARSE_ERROR, "plane: invalid format");
+	conf.point = parse_vec3(split[1]);
+	conf.normal = parse_vec3(split[2]);
+	conf.color = parse_rgb(split[3]);
+	if (!vec_is_normalized(conf.normal))
+		exit_with_error(EXIT_PARSE_ERROR, "plane: invalid value");
+	free_array(split);
+	return (conf);
+}
