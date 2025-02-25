@@ -26,6 +26,11 @@ static void	parse_object_conf(t_object *object, const char *line)
 		init_object(object, OBJ_SPHERE, sizeof(t_sphere_conf));
 		*(t_sphere_conf *)object->conf = parse_sphere(line);
 	}
+	if (!ft_strncmp(line, "pl", 2))
+	{
+		init_object(object, OBJ_PLANE, sizeof(t_plane_conf));
+		*(t_plane_conf *)object->conf = parse_plane(line);
+	}
 	else
 		exit_with_error(EXIT_PARSE_ERROR, "invalid object type");
 }
