@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 21:29:52 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/24 13:27:37 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/02/25 00:56:21 by yotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
-
-# include "scene.h"
 
 typedef struct s_node
 {

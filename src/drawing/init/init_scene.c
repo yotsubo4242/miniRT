@@ -6,49 +6,27 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:11:50 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 18:38:07 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:11:53 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static void	init_plane(t_scene *scene)
+static void	init_object_list(t_scene *scene)
 {
-	scene->plane.plane.x = PLANE_X;
-	scene->plane.plane.y = PLANE_Y;
-	scene->plane.plane.z = PLANE_Z;
-	scene->plane.plane_n.x = PLANE_N_X;
-	scene->plane.plane_n.y = PLANE_N_Y;
-	scene->plane.plane_n.z = PLANE_N_Z;
-	scene->plane.plane_n = vec_normalize(scene->plane.plane_n);
-	scene->plane.plane_color.r = 255;
-	scene->plane.plane_color.g = 255;
-	scene->plane.plane_color.b = 0;
-}
+	t_sphere	*sphere;
+	t_plane		*plane;
+	t_cylinder	*cylinder;
 
-static void	init_cylinder(t_scene *scene)
-{
-	scene->cylinder.center.x = 0.0;
-	scene->cylinder.center.y = -500.0;
-	scene->cylinder.center.z = 500;
-	scene->cylinder.axis.x = 0.0;
-	scene->cylinder.axis.y = 1.0;
-	scene->cylinder.axis.z = 0.0;
-	scene->cylinder.diameter = 500;
-	scene->cylinder.height = 1000;
-	scene->cylinder.color.r = 10;
-	scene->cylinder.color.g = 0;
-	scene->cylinder.color.b = 255;
-}
-
-static void	init_sphere(t_scene *scene)
-{
-	scene->sphere.sphere_color.r = 255;
-	scene->sphere.sphere_color.g = 0;
-	scene->sphere.sphere_color.b = 0;
-	scene->sphere.sphere.x = SPHERE_X;
-	scene->sphere.sphere.y = SPHERE_Y;
-	scene->sphere.sphere.z = SPHERE_Z;
+	scene->obj_list = create_list();
+	if (!scene->obj_list)
+		exit(1);
+	sphere = init_sphere((t_vec3){-300, 0, 5000});
+	push_back_list(scene->obj_list, init_sphere_obj(sphere));
+	plane = init_plane((t_vec3){0, -500, 0}, (t_vec3){0, 1, 0});
+	push_back_list(scene->obj_list, init_plane_obj(plane));
+	cylinder = init_cylinder((t_vec3){500, -500, 4000}, (t_vec3){0, 1, 0});
+	push_back_list(scene->obj_list, init_cylinder_obj(cylinder));
 }
 
 t_scene	init_scene(void)
@@ -64,8 +42,6 @@ t_scene	init_scene(void)
 	scene.scene_color.r = 255;
 	scene.scene_color.g = 255;
 	scene.scene_color.b = 255;
-	init_cylinder(&scene);
-	init_sphere(&scene);
-	init_plane(&scene);
+	init_object_list(&scene);
 	return (scene);
 }
