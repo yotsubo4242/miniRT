@@ -5,11 +5,14 @@ SRCS = main.c \
 	./draw/get_inter.c \
 	./draw/sphere.c \
 	./draw/plane.c \
-	./draw/caluc_cylinder.c \
 	./draw/cylinder.c \
+	./draw/draw_image.c \
 	./error/err_init_mlx.c \
 	./init/init_mlx.c \
 	./init/init_scene.c \
+	./init/init_sphere.c \
+	./init/init_plane.c \
+	./init/init_cylinder.c \
 	./utils/caluc_screen_point.c \
 	./utils/caluc_ray.c \
 	./utils/my_mlx_pixel_put.c \
@@ -19,7 +22,7 @@ SRCS = main.c \
 	./phong_shading/specular.c \
 	./phong_shading/phong_shading.c
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I./include -I../share/include -I../../libmlx -I../../libft
+INCLUDES = -I./include -I../share/include -I../../libmlx -I../../libft/includes
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 LIBS = -lmlx_Linux -lX11 -lXext -lm -lft -lshare

@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 19:46:12 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:26:28 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <float.h>
 # include <stdbool.h>
 # include "vector.h"
+# include "list.h"
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -51,6 +52,20 @@
 # define KS 0.3
 // 鏡面反射での光沢度
 # define GLOSS 8
+
+typedef enum e_init_mlx_err {
+	FT_CALLOC,
+	MLX_INIT,
+	MLX_NEW_WINDOW,
+	MLX_NEW_IMAGE,
+	MLX_GET_DATA_ADDR
+}	t_init_mlx_err;
+
+typedef enum e_obj_type {
+	SPHERE,
+	PLANE,
+	CYLINDER
+}	t_obj_type;
 
 typedef struct s_mlx_data
 {
@@ -95,8 +110,9 @@ typedef struct s_cylinder
 
 typedef struct s_sphere
 {
-	t_vec3	sphere;
-	t_color	sphere_color;
+	t_vec3	center;
+	t_color	color;
+	double	diameter;
 }	t_sphere;
 
 typedef struct s_plane
@@ -106,21 +122,28 @@ typedef struct s_plane
 	t_color		plane_color;
 }	t_plane;
 
+typedef struct s_object
+{
+	t_obj_type	type;
+	void		*conf;
+}	t_object;
+
 typedef struct s_scene
 {
 	t_vec3		screen;
 	t_vec3		ray;
 	t_vec3		camera;
 	t_vec3		light;
-	t_cylinder	cylinder;
-	t_plane		plane;
-	t_sphere	sphere;
+	t_list		*obj_list;
 	t_color		scene_color;
 	t_color		obj_color;
 	t_vec3		n;
 	t_vec3		inter;
-	double		t;
+	double		min_t;
+	t_color		cur_color;
 	double		r;
+	double		tmp_t;
+	t_color		tmp_color;
 }				t_scene;
 
 typedef struct s_trush
@@ -129,27 +152,23 @@ typedef struct s_trush
 	t_vec3	*n;
 }	t_trush;
 
-typedef enum e_init_mlx_err {
-	FT_CALLOC,
-	MLX_INIT,
-	MLX_NEW_WINDOW,
-	MLX_NEW_IMAGE,
-	MLX_GET_DATA_ADDR
-}	t_init_mlx_err;
-
-typedef enum e_obj_type {
-	SPHERE,
-	PLANE,
-	CYLINDER
-}	t_obj_type;
-
 //draw
-void		sphere(t_mlx_data *mlx_data, t_scene scene);
+void		draw_image(t_mlx_data *mlx, t_scene scene);
+void		sphere(t_scene *scene, t_sphere *sphere);
+void		plane(t_scene *scene, t_plane *plane);
+void		cylinder(t_scene *scene, t_cylinder *cylinder);
+t_vec3		get_inter(double t, t_scene scene);
 //error
 void		*err_init_mlx(t_mlx_data *mlx_data, t_init_mlx_err function);
 //init
 t_mlx_data	*init_mlx(void);
 t_scene		init_scene(void);
+t_cylinder	*init_cylinder(t_vec3 center, t_vec3 axis);
+t_object	*init_cylinder_obj(t_cylinder *cylinder);
+t_sphere	*init_sphere(t_vec3 center);
+t_object	*init_sphere_obj(t_sphere *sphere);
+t_plane		*init_plane(t_vec3 point, t_vec3 plane_n);
+t_object	*init_plane_obj(t_plane *plane);
 //utils
 t_vec3		caluc_ray(t_vec3 screen);
 t_vec3		caluc_screen_point(int x, int y);
@@ -157,17 +176,9 @@ void		my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
 int			convert_color_to_hex(t_color color);
 // phong_shading
 void		make_intersection(t_vec3 *intersection, double t, t_scene scene);
-void		phong_shading(t_mlx_data *mlx_data, t_point pt, t_scene scene, \
-					t_obj_type type);
+void		phong_shading(t_scene *scene, t_object obj);
 double		diffuse(t_scene scene, double ratio);
 double		ambient(double ratio);
 double		specular(t_scene scene, double ratio);
-
-t_vec3		get_inter(double t, t_scene scene);
-
-void		plane(t_mlx_data *mlx_data, t_scene scene);
-
-void		caluc_cylinder(t_scene scene, t_point pt, t_mlx_data *mlx_data);
-void		cylinder(t_mlx_data *mlx_data, t_scene scene);
 
 #endif
