@@ -12,7 +12,6 @@
 
 #include "scene.h"
 
-// planning to make parse_camera, parse_lght, else listaddback(parse_objects)
 static t_scene	*parse_line(t_scene *scene, t_scene_count *scene_count, \
 					char *line)
 {

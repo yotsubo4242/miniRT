@@ -70,6 +70,15 @@ typedef struct s_plane_conf
 	t_color			color;
 }	t_plane_conf;
 
+typedef struct s_cylinder_conf
+{
+	t_vec3			center;
+	t_vec3			axis;
+	double			radius;
+	double			height;
+	t_color			color;
+}					t_cylinder_conf;
+
 typedef enum e_object_type
 {
 	OBJ_SPHERE,
@@ -144,4 +153,5 @@ t_object		*parse_object(const char *line);
 // parse_each_object.c
 t_sphere_conf	parse_sphere(const char *line);
 t_plane_conf	parse_plane(const char *line);
+t_cylinder_conf	parse_cylinder(const char *line);
 #endif

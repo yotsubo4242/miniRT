@@ -16,7 +16,7 @@ SRCS = ./vector/vec_dot.c \
 		./list/push_back_list.c
 
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I./include -I../../libmlx -I../../libft/includes -I../../include -I../scene/get_next_line
+INCLUDES = -I./include -I../../libmlx -I../../libft/includes -I../../include -I../scene/get_next_line -I../scene
 CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
 LDLIBS := -lm

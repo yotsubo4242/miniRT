@@ -361,3 +361,30 @@ TEST(ConfigTest, ParsePlaneMissingPoint) {
 TEST(ConfigTest, ParsePlaneMissingColor) {
 	EXPECT_EXIT(parse_plane("pl 0,1,0 0,0,1"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
 }
+
+// parse_cylinder
+// expect success
+TEST(ConfigTest, ParseCylinder) {
+	auto line = "cy  50.0,0.0,20.6  0,0,1.0  14.2  21.42  10,0,255";
+	auto cylinder = parse_cylinder(line);
+	expect_vec3(cylinder.center, 50.0, 0.0, 20.6);
+	expect_vec3(cylinder.axis, 0, 0, 1.0);
+	EXPECT_DOUBLE_EQ(cylinder.radius, 7.1);
+	EXPECT_DOUBLE_EQ(cylinder.height, 21.42);
+	expect_color(cylinder.color, 10, 0, 255);
+}
+
+// expect exit
+TEST(ConfigTest, ParseCylinderMissingCenter) {
+	EXPECT_EXIT(parse_cylinder("cy 0,0,1.0 14.2 21.42 10,0,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+// expect exit
+TEST(ConfigTest, ParseCylinderMissingDiameter) {
+	EXPECT_EXIT(parse_cylinder("cy 0,0,0 0,0,1.0 21.42 10,0,255"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
+
+// expect exit
+TEST(ConfigTest, ParseCylinderMissingColor) {
+	EXPECT_EXIT(parse_cylinder("cy 0,0,0 0,0,1.0 14.2 21.42"), ::testing::ExitedWithCode(EXIT_PARSE_ERROR), "");
+}
