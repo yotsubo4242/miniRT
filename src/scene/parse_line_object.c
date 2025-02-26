@@ -31,6 +31,11 @@ static void	parse_object_conf(t_object *object, const char *line)
 		init_object(object, OBJ_PLANE, sizeof(t_plane_conf));
 		*(t_plane_conf *)object->conf = parse_plane(line);
 	}
+	if (!ft_strncmp(line, "cy", 2))
+	{
+		init_object(object, OBJ_CYLINDER, sizeof(t_cylinder_conf));
+		*(t_cylinder_conf *)object->conf = parse_cylinder(line);
+	}
 	else
 		exit_with_error(EXIT_PARSE_ERROR, "invalid object type");
 }
