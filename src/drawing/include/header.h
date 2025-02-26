@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/26 15:26:28 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:39:31 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,6 @@ void		phong_shading(t_scene *scene, t_object obj);
 double		diffuse(t_scene scene, double ratio);
 double		ambient(double ratio);
 double		specular(t_scene scene, double ratio);
+t_color		caluc_color(t_scene scene, t_object obj);
 
 #endif
