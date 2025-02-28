@@ -32,7 +32,6 @@ static	const char	*atof_integer_part(const char *str, double *result)
 	return (str);
 }
 
-// need to make ft_isfinite 
 // ignore under flow
 static const char	*atof_decimal_part(const char *str, double *result)
 {
