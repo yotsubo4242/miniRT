@@ -30,5 +30,7 @@ typedef struct s_list
 t_node	*creat_node(void *data);
 t_node	*push_back_list(t_list *list, void *data);
 t_list	*create_list(void);
+void	destroy_list(t_list *list, void (*del)(void *));
+void	clear_list(t_list *list, void (*del)(void *));
 
 #endif

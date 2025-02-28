@@ -37,4 +37,5 @@ int	main(int argc, char **argv)
 	}
 	scene = parse_scene(argv[1]);
 	(void)scene;
+	free_config(scene);
 }

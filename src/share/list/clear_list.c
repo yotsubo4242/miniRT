@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destructor.c                                       :+:      :+:    :+:   */
+/*   clear_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 20:39:09 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/19 20:39:21 by tkitahar         ###   ########.fr       */
+/*   Created: 2025/02/28 16:29:08 by tkitahar          #+#    #+#             */
+/*   Updated: 2025/02/28 16:37:57 by tkitahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
 
-void	free_object(void *data)
+void	clear_list(t_list *list, void (*del)(void *))
 {
-	t_object	*obj;
+	t_node *node;
+	t_node *next;
 
-	obj = data;
-	free(obj->conf);
-	free(obj);
-}
-
-void	free_config(t_scene *config)
-{
-	destroy_list(config->objects, free_object);
-	free(config);
+	if (!list)
+		return ;
+	node = list->head;
+	while (node)
+	{
+		next = node->next;
+		if (del)
+			del(node->data);
+		free(node);
+		node = next;
+	}
+	list->head = NULL;
+	list->tail = NULL;
+	list->size = 0;
 }
