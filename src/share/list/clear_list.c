@@ -14,8 +14,8 @@
 
 void	clear_list(t_list *list, void (*del)(void *))
 {
-	t_node *node;
-	t_node *next;
+	t_node	*node;
+	t_node	*next;
 
 	if (!list)
 		return ;
