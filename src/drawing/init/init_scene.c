@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:11:50 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/26 15:11:53 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:50:31 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	init_object_list(t_scene *scene)
 		exit(1);
 	sphere = init_sphere((t_vec3){-300, 0, 5000});
 	push_back_list(scene->obj_list, init_sphere_obj(sphere));
-	plane = init_plane((t_vec3){0, -500, 0}, (t_vec3){0, 1, 0});
+	plane = init_plane((t_vec3){0, -1000, 0}, (t_vec3){0, 1, 0});
 	push_back_list(scene->obj_list, init_plane_obj(plane));
-	cylinder = init_cylinder((t_vec3){500, -500, 4000}, (t_vec3){0, 1, 0});
+	cylinder = init_cylinder((t_vec3){500, -1500, 4000}, (t_vec3){0, 1, 0});
 	push_back_list(scene->obj_list, init_cylinder_obj(cylinder));
 }
 

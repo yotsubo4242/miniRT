@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:48:52 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/26 14:15:08 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 12:45:00 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	caluc_qe(t_solve_quadratic_equation *qe, \
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }
 
-static bool	sp_get_t(t_solve_quadratic_equation qe, double *t)
+bool	sp_get_t(t_solve_quadratic_equation qe, double *t)
 {
 	double	t1;
 	double	t2;
@@ -57,7 +57,7 @@ void	sphere(t_scene *scene, t_sphere *sphere)
 	t_solve_quadratic_equation	qe;
 
 	caluc_qe(&qe, *scene, *sphere);
-	if (qe.d < 0 || !sp_get_t(qe, &(scene->tmp_t)))
+	if (!sp_get_t(qe, &(scene->tmp_t)))
 	{
 		scene->tmp_t = -1;
 		return ;
