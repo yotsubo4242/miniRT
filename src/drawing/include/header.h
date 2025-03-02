@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:07:50 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:35:24 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,8 @@ void		draw_image(t_mlx_data *mlx, t_scene scene);
 bool		sp_get_t(t_solve_quadratic_equation qe, double *t);
 void		sphere(t_scene *scene, t_sphere *sphere);
 void		plane(t_scene *scene, t_plane *plane);
+t_vec3		caluc_n(t_vec3 p, t_cylinder cylinder, double tmp);
+void		cy_get_ts(t_solve_quadratic_equation qe, double *t1, double *t2);
 void		cylinder(t_scene *scene, t_cylinder *cylinder);
 t_vec3		get_inter(double t, t_scene scene);
 //error
@@ -190,5 +192,6 @@ bool		is_blocked_light(t_scene scene, double t);
 bool		is_shadow(t_scene scene);
 bool		shadow_sphere(t_scene scene, t_sphere sphere);
 bool		shadow_plane(t_scene scene, t_plane plane);
+bool		shadow_cylinder(t_scene scene, t_cylinder cylinder);
 
 #endif
