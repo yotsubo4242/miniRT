@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/26 15:39:31 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:02:43 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define KS 0.3
 // 鏡面反射での光沢度
 # define GLOSS 8
+# define EPSILON 1 / 256
 
 typedef enum e_init_mlx_err {
 	FT_CALLOC,
@@ -144,6 +145,8 @@ typedef struct s_scene
 	double		r;
 	double		tmp_t;
 	t_color		tmp_color;
+	t_vec3		shadow_ray;
+	t_vec3		shadow_inter;
 }				t_scene;
 
 typedef struct s_trush
@@ -154,6 +157,7 @@ typedef struct s_trush
 
 //draw
 void		draw_image(t_mlx_data *mlx, t_scene scene);
+bool		sp_get_t(t_solve_quadratic_equation qe, double *t);
 void		sphere(t_scene *scene, t_sphere *sphere);
 void		plane(t_scene *scene, t_plane *plane);
 void		cylinder(t_scene *scene, t_cylinder *cylinder);
@@ -181,5 +185,9 @@ double		diffuse(t_scene scene, double ratio);
 double		ambient(double ratio);
 double		specular(t_scene scene, double ratio);
 t_color		caluc_color(t_scene scene, t_object obj);
+// shadow
+bool		is_blocked_light(t_scene scene, double t);
+bool		is_shadow(t_scene scene);
+bool		shadow_sphere(t_scene scene, t_sphere sphere);
 
 #endif
