@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:35:24 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:44:06 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define KS 0.3
 // 鏡面反射での光沢度
 # define GLOSS 8
-# define EPSILON 1 / 256
+# define EPSILON 0.03
 
 typedef enum e_init_mlx_err {
 	FT_CALLOC,

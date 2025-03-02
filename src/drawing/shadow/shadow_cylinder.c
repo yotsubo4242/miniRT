@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:09:26 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:23:49 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:44:22 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,5 @@ bool	shadow_cylinder(t_scene scene, t_cylinder cylinder)
 	free(n);
 	if (vec_dot(dxn, dxn) == 0 || qe.d < 0)
 		return (false);
-	printf("t: %f\n", t);
 	return (is_blocked_light(scene, t));
 }
