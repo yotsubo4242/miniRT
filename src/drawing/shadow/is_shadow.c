@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:17:04 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:44:33 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:53:42 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ bool	is_shadow(t_scene scene)
 		else if (obj->type == PLANE)
 			is_blocked_light = shadow_plane(scene, *(t_plane *)(obj->conf));
 		else if (obj->type == CYLINDER)
-			is_blocked_light = shadow_cylinder(scene, *(t_cylinder *)(obj->conf));
+			is_blocked_light = shadow_cylinder(scene, \
+										*(t_cylinder *)(obj->conf));
 		if (is_blocked_light == true)
 			return (true);
 		node = node->next;
