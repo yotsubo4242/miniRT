@@ -24,7 +24,8 @@ SRCS = main.c \
 	./phong_shading/caluc_color.c \
 	./shadow/is_shadow.c \
 	./shadow/is_blocked_light.c \
-	./shadow/shadow_sphere.c
+	./shadow/shadow_sphere.c \
+	./shadow/shadow_plane.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./include -I../share/include -I../../libmlx -I../../libft/includes
 CC = cc

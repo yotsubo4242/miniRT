@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:38:44 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:02:43 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:07:50 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,5 +189,6 @@ t_color		caluc_color(t_scene scene, t_object obj);
 bool		is_blocked_light(t_scene scene, double t);
 bool		is_shadow(t_scene scene);
 bool		shadow_sphere(t_scene scene, t_sphere sphere);
+bool		shadow_plane(t_scene scene, t_plane plane);
 
 #endif
