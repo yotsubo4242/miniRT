@@ -67,6 +67,7 @@ t_scene	*parse_scene(const char *path)
 			break ;
 		if (*line != '\n')
 			parse_line(scene, &scene_count, line);
+		free(line);
 	}
 	validate_scene_count(scene_count);
 	return (scene);

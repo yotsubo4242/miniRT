@@ -154,4 +154,8 @@ t_object		*parse_object(const char *line);
 t_sphere_conf	parse_sphere(const char *line);
 t_plane_conf	parse_plane(const char *line);
 t_cylinder_conf	parse_cylinder(const char *line);
+
+// destructor.c
+void			free_config(t_scene *config);
+void			free_object(void *data);
 #endif
