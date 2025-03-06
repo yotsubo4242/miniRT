@@ -27,6 +27,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt-get install libx11-dev libxext-dev
+        run: sudo apt-get install libx11-dev libxext-dev libbsd-dev
       - name: build
         run: make CC=clang
