@@ -28,7 +28,7 @@ SRCS = main.c \
 	./shadow/shadow_plane.c \
 	./shadow/shadow_cylinder.c
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I./include -I../share/include -I../../libmlx -I../../libft/includes
+INCLUDES = -I./include -I../share/include -I../../libmlx -I../../libft/includes -I../scene
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 LIBS = -lmlx_Linux -lX11 -lXext -lm -lft -lshare

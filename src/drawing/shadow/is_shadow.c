@@ -6,11 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:17:04 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:53:42 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:01:28 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 bool	is_shadow(t_scene scene)
 {
@@ -18,18 +18,18 @@ bool	is_shadow(t_scene scene)
 	t_object	*obj;
 	bool		is_blocked_light;
 
-	node = scene.obj_list->head;
+	node = scene.objects->head;
 	is_blocked_light = false;
 	while (node)
 	{
 		obj = (t_object *)(node->data);
-		if (obj->type == SPHERE)
-			is_blocked_light = shadow_sphere(scene, *(t_sphere *)(obj->conf));
-		else if (obj->type == PLANE)
-			is_blocked_light = shadow_plane(scene, *(t_plane *)(obj->conf));
-		else if (obj->type == CYLINDER)
+		if (obj->type == OBJ_SPHERE)
+			is_blocked_light = shadow_sphere(scene, *(t_sphere_conf *)(obj->conf));
+		else if (obj->type == OBJ_PLANE)
+			is_blocked_light = shadow_plane(scene, *(t_plane_conf *)(obj->conf));
+		else if (obj->type == OBJ_CYLINDER)
 			is_blocked_light = shadow_cylinder(scene, \
-										*(t_cylinder *)(obj->conf));
+										*(t_cylinder_conf *)(obj->conf));
 		if (is_blocked_light == true)
 			return (true);
 		node = node->next;

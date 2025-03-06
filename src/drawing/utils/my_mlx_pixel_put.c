@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   my_mlx_pixel_put.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:32:55 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:15:11 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:44:28 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 void	my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color)
 {

@@ -2,11 +2,12 @@ NAME := miniRT
 
 CC = cc
 
-SRC_DIR := src/list src/scene
+SRC_DIR := src/drawing src/scene
 OBJ_DIR := obj
 
 LIBFT := libft/libft.a
 SHARE := src/share/libshare.a
+MLX := libmlx/libmlx_Linux.a
 
 CFLAGS := -Wall -Wextra -Werror
 
@@ -15,7 +16,7 @@ DEBUG_FLAGS := -ggdb3 -O0 -fsanitize=address
 INCLUDES := -Iinclude -Ilibft/includes -Ilibmlx -Isrc/share/include -Isrc/list -Isrc/scene/get_next_line -Isrc/share/list -Isrc/scene
 
 LDFLAGS := -Llibft -Llibmlx -Lm -Lsrc/share
-LDLIBS := -lft -lshare -lm
+LDLIBS := -lft -lshare -lm -lmlx_Linux -lX11 -lXext
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
 SRC += src/main.c
@@ -27,7 +28,7 @@ all : $(NAME)
 debug: CFLAGS+=$(DEBUG_FLAGS)
 debug: $(NAME)
 
-$(NAME) : $(SHARE) $(LIBFT) $(OBJ)
+$(NAME) : $(SHARE) $(LIBFT) $(MLX) $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
@@ -40,9 +41,13 @@ $(SHARE):
 $(LIBFT):
 	make -C libft
 
+$(MLX) :
+	make -C libmlx
+
 clean :
 	make -C libft clean
 	make -C src/share clean
+	make -C libmlx clean
 	rm -rf $(OBJ_DIR)
 
 fclean : clean

@@ -6,11 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:13 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/23 19:51:40 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:04:35 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 static double	caluc_r_s(t_scene scene, t_vec3 l, double ratio)
 {
@@ -32,7 +32,7 @@ double	specular(t_scene scene, double ratio)
 {
 	t_vec3	l;
 
-	l = vec_normalize(vec_minus(scene.light, scene.inter));
+	l = vec_normalize(vec_minus(scene.light.position, scene.inter));
 	if (vec_dot(scene.n, l) < 0)
 		return (0.0);
 	return (caluc_r_s(scene, l, ratio));

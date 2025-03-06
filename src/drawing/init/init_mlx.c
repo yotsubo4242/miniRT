@@ -6,11 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:13:14 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/19 16:52:31 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:44:28 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 t_mlx_data	*init_mlx(void)
 {
