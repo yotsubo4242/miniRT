@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/06 17:50:02 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:55:32 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef double	t_brightness;
 # define KS 0.3
 # define GLOSS 8
 # define EPSILON 0.03
+# define PI 3.1415926535
 
 typedef enum e_init_mlx_err {
 	FT_CALLOC,

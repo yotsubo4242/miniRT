@@ -6,13 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:43:32 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/06 18:45:32 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:55:19 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scene.h"
-
-#define PI 3.1415926535
 
 t_vec3	caluc_camera_to_screen(t_scene scene)
 {
