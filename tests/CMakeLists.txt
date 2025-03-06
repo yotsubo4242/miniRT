@@ -18,6 +18,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src/list)
 include_directories(${CMAKE_SOURCE_DIR}/src/share/include)
 include_directories(${CMAKE_SOURCE_DIR}/src/scene/get_next_line)
 include_directories(${CMAKE_SOURCE_DIR}/src/scene)
+include_directories(${MLX_SOURCE_DIR})
 
 # build scene library
 file(GLOB_RECURSE SCENE_SOURCES 
@@ -30,8 +31,8 @@ add_library(scene OBJECT ${SCENE_SOURCES})
 # build test program
 add_executable(test_parser test_parser.cpp $<TARGET_OBJECTS:scene>)
 
-# link Google Test library to othrer link files
+# link Google Test library to other link files
 target_link_libraries(test_parser gtest_main gtest ft)
 
-# ditect tests by not using add_test
+# detect tests by not using add_test
 gtest_discover_tests(test_parser)
