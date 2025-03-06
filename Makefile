@@ -7,15 +7,15 @@ OBJ_DIR := obj
 
 LIBFT := libft/libft.a
 SHARE := src/share/libshare.a
-MLX := libmlx/libmlx_Linux.a
+LIBMLX := minilibx-linux/libmlx_Linux.a
 
 CFLAGS := -Wall -Wextra -Werror
 
 RELEASE_FLAGS := -O3
 DEBUG_FLAGS := -ggdb3 -O0 -fsanitize=address
-INCLUDES := -Iinclude -Ilibft/includes -Ilibmlx -Isrc/share/include -Isrc/list -Isrc/scene/get_next_line -Isrc/share/list -Isrc/scene
+INCLUDES := -Iinclude -Ilibft/includes -Iminilibx-linux -Isrc/share/include -Isrc/list -Isrc/scene/get_next_line -Isrc/share/list -Isrc/scene
 
-LDFLAGS := -Llibft -Llibmlx -Lm -Lsrc/share
+LDFLAGS := -Llibft -Lminilibx-linux -Lm -Lsrc/share
 LDLIBS := -lft -lshare -lm -lmlx_Linux -lX11 -lXext
 
 SRC := $(shell find $(SRC_DIR) -name '*.c')
@@ -28,7 +28,7 @@ all : $(NAME)
 debug: CFLAGS+=$(DEBUG_FLAGS)
 debug: $(NAME)
 
-$(NAME) : $(SHARE) $(LIBFT) $(MLX) $(OBJ)
+$(NAME) : $(SHARE) $(LIBFT) $(LIBMLX) $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
@@ -41,13 +41,14 @@ $(SHARE):
 $(LIBFT):
 	make -C libft
 
-$(MLX) :
-	make -C libmlx
+$(LIBMLX):
+	-git submodule update --init
+	make -C minilibx-linux
 
 clean :
 	make -C libft clean
 	make -C src/share clean
-	make -C libmlx clean
+	make -C minilibx-linux clean
 	rm -rf $(OBJ_DIR)
 
 fclean : clean
