@@ -6,22 +6,22 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:48:52 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 12:45:00 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:57:54 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 static void	caluc_qe(t_solve_quadratic_equation *qe, \
-						t_scene scene, t_sphere sphere)
+						t_scene scene, t_sphere_conf sphere)
 {
 	qe->a = vec_dot(scene.ray, scene.ray);
-	qe->b = 2 * (vec_dot(scene.camera, scene.ray) \
+	qe->b = 2 * (vec_dot(scene.camera.position, scene.ray) \
 				- vec_dot(sphere.center, scene.ray));
-	qe->c = vec_dot(scene.camera, scene.camera) \
-				- 2 * vec_dot(sphere.center, scene.camera) \
+	qe->c = vec_dot(scene.camera.position, scene.camera.position) \
+				- 2 * vec_dot(sphere.center, scene.camera.position) \
 				+ vec_dot(sphere.center, sphere.center) \
-				- pow(SPHERE_RADIUS, 2);
+				- pow(sphere.radius, 2);
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }
 
@@ -52,7 +52,7 @@ bool	sp_get_t(t_solve_quadratic_equation qe, double *t)
 	return (true);
 }
 
-void	sphere(t_scene *scene, t_sphere *sphere)
+void	sphere(t_scene *scene, t_sphere_conf *sphere)
 {
 	t_solve_quadratic_equation	qe;
 
@@ -67,6 +67,6 @@ void	sphere(t_scene *scene, t_sphere *sphere)
 		scene->inter = get_inter(scene->tmp_t, *scene);
 		scene->n = vec_normalize(\
 				vec_minus(scene->inter, sphere->center));
-		phong_shading(scene, (t_object){SPHERE, sphere});
+		phong_shading(scene, (t_object){OBJ_SPHERE, sphere});
 	}
 }

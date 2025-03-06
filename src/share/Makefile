@@ -18,7 +18,7 @@ SRCS = ./vector/vec_dot.c \
 		./list/destroy_list.c
 
 OBJS = $(SRCS:.c=.o)
-INCLUDES = -I./include -I../../libmlx -I../../libft/includes -I../../include -I../scene/get_next_line -I../scene
+INCLUDES = -I./include -I../../minilibx-linux -I../../libft/includes -I../scene/get_next_line -I../scene
 CC = cc -g
 CFLAGS = -Wall -Wextra -Werror
 LDLIBS := -lm

@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   caluc_ray.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotsubo <y.otsubo.886@ms.saitama-u.ac.j    +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:43:32 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:15:02 by yotsubo          ###   ########.fr       */
+/*   Updated: 2025/03/06 13:46:38 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
-t_vec3	caluc_ray(t_vec3 screen)
+t_vec3	caluc_ray(t_vec3 screen, t_camera_conf camera)
 {
 	t_vec3	ray;
 
-	ray.x = screen.x - OBSRV_X;
-	ray.y = screen.y - OBSRV_Y;
-	ray.z = screen.z - OBSRV_Z;
+	ray.x = screen.x - camera.position.x;
+	ray.y = screen.y - camera.position.y;
+	ray.z = screen.z - camera.position.z;
 	return (ray);
 }

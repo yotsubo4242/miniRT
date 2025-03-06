@@ -6,14 +6,14 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:38:30 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:00:19 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:31:28 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 static void	caluc_qe(t_solve_quadratic_equation *qe, \
-						t_scene scene, t_sphere sphere)
+						t_scene scene, t_sphere_conf sphere)
 {
 	qe->a = vec_dot(scene.shadow_ray, scene.shadow_ray);
 	qe->b = 2 * (vec_dot(scene.shadow_inter, scene.shadow_ray) \
@@ -21,17 +21,17 @@ static void	caluc_qe(t_solve_quadratic_equation *qe, \
 	qe->c = vec_dot(scene.shadow_inter, scene.shadow_inter) \
 				- 2 * vec_dot(sphere.center, scene.shadow_inter) \
 				+ vec_dot(sphere.center, sphere.center) \
-				- pow(SPHERE_RADIUS, 2);
+				- pow(sphere.radius, 2);
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }
 
-bool	shadow_sphere(t_scene scene, t_sphere sphere)
+bool	shadow_sphere(t_scene scene, t_sphere_conf sphere)
 {
 	t_solve_quadratic_equation	qe;
 	double						t;
 	t_vec3						l;
 
-	l = vec_normalize(vec_minus(scene.light, scene.inter));
+	l = vec_normalize(vec_minus(scene.light.position, scene.inter));
 	scene.shadow_inter = vec_plus(scene.inter, vec_mult(EPSILON, l));
 	scene.shadow_ray = l;
 	caluc_qe(&qe, scene, sphere);

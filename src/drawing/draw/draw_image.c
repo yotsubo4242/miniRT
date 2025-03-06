@@ -6,27 +6,27 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 00:49:15 by yotsubo           #+#    #+#             */
-/*   Updated: 2025/02/26 15:11:10 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:52:08 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 static void	caluc_all_objects(t_scene *scene)
 {
 	t_node		*node;
 	t_object	*obj;
 
-	node = scene->obj_list->head;
+	node = scene->objects->head;
 	while (node)
 	{
 		obj = (t_object *)(node->data);
-		if (obj->type == SPHERE)
-			sphere(scene, (t_sphere *)(obj->conf));
-		else if (obj->type == PLANE)
-			plane(scene, (t_plane *)(obj->conf));
-		else if (obj->type == CYLINDER)
-			cylinder(scene, (t_cylinder *)(obj->conf));
+		if (obj->type == OBJ_SPHERE)
+			sphere(scene, (t_sphere_conf *)(obj->conf));
+		else if (obj->type == OBJ_PLANE)
+			plane(scene, (t_plane_conf *)(obj->conf));
+		else if (obj->type == OBJ_CYLINDER)
+			cylinder(scene, (t_cylinder_conf *)(obj->conf));
 		if (scene->tmp_t < scene->min_t && scene->tmp_t > 0)
 		{
 			scene->min_t = scene->tmp_t;
@@ -49,7 +49,7 @@ void	draw_image(t_mlx_data *mlx, t_scene scene)
 		while (x < WIDTH)
 		{
 			scene.screen = caluc_screen_point(x, y);
-			scene.ray = caluc_ray(scene.screen);
+			scene.ray = caluc_ray(scene.screen, scene.camera);
 			scene.min_t = DBL_MAX;
 			scene.cur_color = scene.scene_color;
 			scene.tmp_color = scene.scene_color;

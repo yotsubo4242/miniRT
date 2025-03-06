@@ -6,11 +6,11 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:12:42 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 13:49:25 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:33:04 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 void	phong_shading(t_scene *scene, t_object obj)
 {
@@ -18,7 +18,7 @@ void	phong_shading(t_scene *scene, t_object obj)
 	double	r_d;
 	double	r_s;
 
-	r_a = ambient(0.8);
+	r_a = ambient(scene->ambient);
 	if (is_shadow(*scene))
 		scene->r = r_a;
 	else

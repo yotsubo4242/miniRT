@@ -6,14 +6,14 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:26:10 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:20:47 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:51:10 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 static void	caluc_qe(t_solve_quadratic_equation *qe, t_scene scene, \
-					t_cylinder cylinder)
+					t_cylinder_conf cylinder)
 {
 	t_vec3	dxn;
 
@@ -21,13 +21,13 @@ static void	caluc_qe(t_solve_quadratic_equation *qe, t_scene scene, \
 	qe->a = vec_dot(dxn, dxn);
 	qe->b = 2 * vec_dot(\
 					dxn, vec_cross(\
-							vec_minus(scene.camera, cylinder.center), \
+							vec_minus(scene.camera.position, cylinder.center), \
 							cylinder.axis));
-	qe->c = vec_dot(vec_cross(vec_minus(scene.camera, cylinder.center), \
-							cylinder.axis), \
-					vec_cross(vec_minus(scene.camera, cylinder.center), \
-							cylinder.axis)) \
-			- pow(cylinder.diameter, 2);
+	qe->c = vec_dot(vec_cross(vec_minus(scene.camera.position, \
+							cylinder.center), cylinder.axis), \
+					vec_cross(vec_minus(scene.camera.position, \
+							cylinder.center), cylinder.axis)) \
+			- pow(cylinder.radius, 2);
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }
 
@@ -42,7 +42,7 @@ void	cy_get_ts(t_solve_quadratic_equation qe, double *t1, double *t2)
 	}
 }
 
-t_vec3	caluc_n(t_vec3 p, t_cylinder cylinder, double tmp)
+t_vec3	caluc_n(t_vec3 p, t_cylinder_conf cylinder, double tmp)
 {
 	t_vec3	n;
 
@@ -52,7 +52,7 @@ t_vec3	caluc_n(t_vec3 p, t_cylinder cylinder, double tmp)
 }
 
 static t_vec3	*cy_make_n(t_solve_quadratic_equation qe, \
-						t_scene scene, t_cylinder cylinder, double *t)
+						t_scene scene, t_cylinder_conf cylinder, double *t)
 {
 	t_vec3	p;
 	t_vec3	n;
@@ -61,7 +61,7 @@ static t_vec3	*cy_make_n(t_solve_quadratic_equation qe, \
 	double	tmp;
 
 	cy_get_ts(qe, &t1, &t2);
-	p = vec_plus(scene.camera, vec_mult(t1, scene.ray));
+	p = vec_plus(scene.camera.position, vec_mult(t1, scene.ray));
 	tmp = vec_dot(vec_minus(p, cylinder.center), cylinder.axis);
 	if (tmp >= 0 && tmp <= cylinder.height)
 	{
@@ -69,7 +69,7 @@ static t_vec3	*cy_make_n(t_solve_quadratic_equation qe, \
 		*t = t1;
 		return (vec_dup(vec_div(n, vec_mag(n))));
 	}
-	p = vec_plus(scene.camera, vec_mult(t2, scene.ray));
+	p = vec_plus(scene.camera.position, vec_mult(t2, scene.ray));
 	tmp = vec_dot(vec_minus(p, cylinder.center), cylinder.axis);
 	if (tmp >= 0 && tmp <= cylinder.height)
 	{
@@ -80,7 +80,7 @@ static t_vec3	*cy_make_n(t_solve_quadratic_equation qe, \
 	return (NULL);
 }
 
-void	cylinder(t_scene *scene, t_cylinder *cylinder)
+void	cylinder(t_scene *scene, t_cylinder_conf *cylinder)
 {
 	t_solve_quadratic_equation	qe;
 	t_vec3						dxn;
@@ -97,6 +97,6 @@ void	cylinder(t_scene *scene, t_cylinder *cylinder)
 	scene->inter = get_inter(scene->tmp_t, *scene);
 	scene->n = *n;
 	if (vec_dot(dxn, dxn) != 0 && qe.d >= 0)
-		phong_shading(scene, (t_object){CYLINDER, cylinder});
+		phong_shading(scene, (t_object){OBJ_CYLINDER, cylinder});
 	free(n);
 }

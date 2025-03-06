@@ -6,32 +6,32 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:01:03 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:07:27 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:04:41 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
-static double	pl_get_t(t_scene scene, t_plane plane)
+static double	pl_get_t(t_scene scene, t_plane_conf plane)
 {
 	double	t;
 	double	dn;
 
-	dn = vec_dot(scene.shadow_ray, plane.plane_n);
+	dn = vec_dot(scene.shadow_ray, plane.normal);
 	if (dn == 0)
 		return (-1.0);
-	t = (vec_dot(plane.plane, plane.plane_n) \
-			- vec_dot(scene.shadow_inter, plane.plane_n)) \
-			/ vec_dot(scene.shadow_ray, plane.plane_n);
+	t = (vec_dot(plane.point, plane.normal) \
+			- vec_dot(scene.shadow_inter, plane.normal)) \
+			/ vec_dot(scene.shadow_ray, plane.normal);
 	return (t);
 }
 
-bool	shadow_plane(t_scene scene, t_plane plane)
+bool	shadow_plane(t_scene scene, t_plane_conf plane)
 {
 	double						t;
 	t_vec3						l;
 
-	l = vec_normalize(vec_minus(scene.light, scene.inter));
+	l = vec_normalize(vec_minus(scene.light.position, scene.inter));
 	scene.shadow_inter = vec_plus(scene.inter, \
 									vec_mult(EPSILON, l));
 	scene.shadow_ray = l;

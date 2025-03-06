@@ -6,14 +6,14 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:09:26 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/02 14:53:55 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:50:15 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "scene.h"
 
 static void	caluc_qe(t_solve_quadratic_equation *qe, t_scene scene, \
-					t_cylinder cylinder)
+					t_cylinder_conf cylinder)
 {
 	t_vec3	dxn;
 
@@ -27,12 +27,12 @@ static void	caluc_qe(t_solve_quadratic_equation *qe, t_scene scene, \
 							cylinder.axis), \
 					vec_cross(vec_minus(scene.shadow_inter, cylinder.center), \
 							cylinder.axis)) \
-			- pow(cylinder.diameter, 2);
+			- pow(cylinder.radius, 2);
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }
 
 static t_vec3	*cy_make_n(t_solve_quadratic_equation qe, \
-						t_scene scene, t_cylinder cylinder, double *t)
+						t_scene scene, t_cylinder_conf cylinder, double *t)
 {
 	t_vec3	p;
 	t_vec3	n;
@@ -60,14 +60,15 @@ static t_vec3	*cy_make_n(t_solve_quadratic_equation qe, \
 	return (NULL);
 }
 
-bool	shadow_cylinder(t_scene scene, t_cylinder cylinder)
+bool	shadow_cylinder(t_scene scene, t_cylinder_conf cylinder)
 {
 	t_solve_quadratic_equation	qe;
 	t_vec3						dxn;
 	t_vec3						*n;
 	double						t;
 
-	scene.shadow_ray = vec_normalize(vec_minus(scene.light, scene.inter));
+	scene.shadow_ray = vec_normalize(vec_minus(scene.light.position, \
+												scene.inter));
 	scene.shadow_inter = vec_plus(scene.inter, \
 							vec_mult(EPSILON, scene.shadow_ray));
 	caluc_qe(&qe, scene, cylinder);

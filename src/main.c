@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkitahar <tkitahar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:25:11 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/02/18 22:05:00 by tkitahar         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:39:57 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,23 @@ static bool	is_rt_file(char *filename)
 	return (ft_strcmp(filename + len - 3, ".rt") == 0);
 }
 
-int	main(int argc, char **argv)
+static int	my_exit(int keycode, void *param)
 {
 	t_scene	*scene;
+
+	scene = (t_scene *)param;
+	if (keycode == 65307)
+	{
+		free_config(scene);
+		exit(0);
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_scene		*scene;
+	t_mlx_data	*mlx_data;
 
 	if (argc != 2)
 	{
@@ -36,6 +50,10 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	scene = parse_scene(argv[1]);
-	(void)scene;
-	free_config(scene);
+	mlx_data = init_mlx();
+	draw_image(mlx_data, *scene);
+	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
+							mlx_data->img, 0, 0);
+	mlx_key_hook(mlx_data->win_ptr, my_exit, scene);
+	mlx_loop(mlx_data->mlx_ptr);
 }
