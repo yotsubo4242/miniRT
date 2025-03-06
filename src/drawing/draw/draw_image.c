@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 00:49:15 by yotsubo           #+#    #+#             */
-/*   Updated: 2025/03/06 13:52:08 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:44:25 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	draw_image(t_mlx_data *mlx, t_scene scene)
 	int	x;
 	int	y;
 
+	scene.camera_to_screen = caluc_camera_to_screen(scene);
 	y = 0;
 	while (y < HEIGHT)
 	{
 		x = 0;
 		while (x < WIDTH)
 		{
-			scene.screen = caluc_screen_point(x, y);
-			scene.ray = caluc_ray(scene.screen, scene.camera);
+			scene.ray = caluc_ray(x, y, scene);
 			scene.min_t = DBL_MAX;
 			scene.cur_color = scene.scene_color;
 			scene.tmp_color = scene.scene_color;

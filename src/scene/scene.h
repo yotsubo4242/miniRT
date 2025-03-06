@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/06 14:49:41 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:55:32 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # include <float.h>
 
 typedef double	t_radian;
-typedef double	t_degree;
+typedef double	t_angle;
 typedef double	t_ratio;
 typedef double	t_brightness;
 
@@ -41,6 +41,7 @@ typedef double	t_brightness;
 # define KS 0.3
 # define GLOSS 8
 # define EPSILON 0.03
+# define PI 3.1415926535
 
 typedef enum e_init_mlx_err {
 	FT_CALLOC,
@@ -99,7 +100,7 @@ typedef struct s_camera_conf
 {
 	t_vec3		position;
 	t_vec3		orientation;
-	t_degree	fov;
+	t_angle		fov;
 }	t_camera_conf;
 
 typedef struct s_light_conf
@@ -147,7 +148,6 @@ typedef struct s_scene_count
 
 typedef struct s_scene
 {
-	t_vec3			screen;
 	t_vec3			ray;
 	t_ambient_conf	ambient;
 	t_camera_conf	camera;
@@ -164,6 +164,7 @@ typedef struct s_scene
 	t_color			tmp_color;
 	t_vec3			shadow_ray;
 	t_vec3			shadow_inter;
+	t_vec3			camera_to_screen;
 }	t_scene;
 
 typedef struct s_trush
@@ -226,6 +227,7 @@ void			free_object(void *data);
 
 //drawing
 //draw
+t_vec3			caluc_camera_to_screen(t_scene scene);
 void			draw_image(t_mlx_data *mlx, t_scene scene);
 bool			sp_get_t(t_solve_quadratic_equation qe, double *t);
 void			sphere(t_scene *scene, t_sphere_conf *sphere);
@@ -239,16 +241,9 @@ t_vec3			get_inter(double t, t_scene scene);
 void			*err_init_mlx(t_mlx_data *mlx_data, t_init_mlx_err function);
 //init
 t_mlx_data		*init_mlx(void);
-t_scene			init_scene(void);
-t_cylinder_conf	*init_cylinder(t_vec3 center, t_vec3 axis);
-t_object		*init_cylinder_obj(t_cylinder_conf *cylinder);
-t_sphere_conf	*init_sphere(t_vec3 center);
-t_object		*init_sphere_obj(t_sphere_conf *sphere);
-t_plane_conf	*init_plane(t_vec3 point, t_vec3 plane_n);
-t_object		*init_plane_obj(t_plane_conf *plane);
 //utils
-t_vec3			caluc_ray(t_vec3 screen, t_camera_conf camera);
-t_vec3			caluc_screen_point(int x, int y);
+t_vec3			caluc_camera_to_screen(t_scene scene);
+t_vec3			caluc_ray(int x, int y, t_scene scene);
 void			my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
 int				convert_color_to_hex(t_color color);
 // phong_shading
