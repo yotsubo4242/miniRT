@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 14:09:26 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/06 14:05:05 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:50:15 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ bool	shadow_cylinder(t_scene scene, t_cylinder_conf cylinder)
 	t_vec3						*n;
 	double						t;
 
-	scene.shadow_ray = vec_normalize(vec_minus(scene.light.position, scene.inter));
+	scene.shadow_ray = vec_normalize(vec_minus(scene.light.position, \
+												scene.inter));
 	scene.shadow_inter = vec_plus(scene.inter, \
 							vec_mult(EPSILON, scene.shadow_ray));
 	caluc_qe(&qe, scene, cylinder);

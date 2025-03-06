@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:26:10 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/06 14:07:23 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:51:10 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ static void	caluc_qe(t_solve_quadratic_equation *qe, t_scene scene, \
 					dxn, vec_cross(\
 							vec_minus(scene.camera.position, cylinder.center), \
 							cylinder.axis));
-	qe->c = vec_dot(vec_cross(vec_minus(scene.camera.position, cylinder.center), \
-							cylinder.axis), \
-					vec_cross(vec_minus(scene.camera.position, cylinder.center), \
-							cylinder.axis)) \
+	qe->c = vec_dot(vec_cross(vec_minus(scene.camera.position, \
+							cylinder.center), cylinder.axis), \
+					vec_cross(vec_minus(scene.camera.position, \
+							cylinder.center), cylinder.axis)) \
 			- pow(cylinder.radius, 2);
 	qe->d = pow(qe->b, 2) - 4 * qe->a * qe->c;
 }

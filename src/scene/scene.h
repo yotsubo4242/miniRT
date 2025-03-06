@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/06 14:34:28 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:49:41 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ typedef struct s_mlx_data
 	int		endian;
 }				t_mlx_data;
 
-
 typedef struct s_color
 {
 	int			r;
@@ -89,7 +88,6 @@ typedef struct s_solve_quadratic_equation
 	double	c;
 	double	d;
 }	t_solve_quadratic_equation;
-
 
 typedef struct s_ambient_conf
 {
@@ -149,23 +147,23 @@ typedef struct s_scene_count
 
 typedef struct s_scene
 {
-	t_vec3		screen;
-	t_vec3		ray;
+	t_vec3			screen;
+	t_vec3			ray;
 	t_ambient_conf	ambient;
 	t_camera_conf	camera;
 	t_light_conf	light;
 	t_list			*objects;
-	t_color		scene_color;
-	t_color		obj_color;
-	t_vec3		n;
-	t_vec3		inter;
-	double		min_t;
-	t_color		cur_color;
-	double		r;
-	double		tmp_t;
-	t_color		tmp_color;
-	t_vec3		shadow_ray;
-	t_vec3		shadow_inter;
+	t_color			scene_color;
+	t_color			obj_color;
+	t_vec3			n;
+	t_vec3			inter;
+	double			min_t;
+	t_color			cur_color;
+	double			r;
+	double			tmp_t;
+	t_color			tmp_color;
+	t_vec3			shadow_ray;
+	t_vec3			shadow_inter;
 }	t_scene;
 
 typedef struct s_trush
@@ -228,42 +226,44 @@ void			free_object(void *data);
 
 //drawing
 //draw
-void		draw_image(t_mlx_data *mlx, t_scene scene);
-bool		sp_get_t(t_solve_quadratic_equation qe, double *t);
-void		sphere(t_scene *scene, t_sphere_conf *sphere);
-void		plane(t_scene *scene, t_plane_conf *plane);
-t_vec3		caluc_n(t_vec3 p, t_cylinder_conf cylinder, double tmp);
-void		cy_get_ts(t_solve_quadratic_equation qe, double *t1, double *t2);
-void		cylinder(t_scene *scene, t_cylinder_conf *cylinder);
-t_vec3		get_inter(double t, t_scene scene);
+void			draw_image(t_mlx_data *mlx, t_scene scene);
+bool			sp_get_t(t_solve_quadratic_equation qe, double *t);
+void			sphere(t_scene *scene, t_sphere_conf *sphere);
+void			plane(t_scene *scene, t_plane_conf *plane);
+t_vec3			caluc_n(t_vec3 p, t_cylinder_conf cylinder, double tmp);
+void			cy_get_ts(t_solve_quadratic_equation qe, \
+							double *t1, double *t2);
+void			cylinder(t_scene *scene, t_cylinder_conf *cylinder);
+t_vec3			get_inter(double t, t_scene scene);
 //error
-void		*err_init_mlx(t_mlx_data *mlx_data, t_init_mlx_err function);
+void			*err_init_mlx(t_mlx_data *mlx_data, t_init_mlx_err function);
 //init
-t_mlx_data	*init_mlx(void);
-t_scene		init_scene(void);
+t_mlx_data		*init_mlx(void);
+t_scene			init_scene(void);
 t_cylinder_conf	*init_cylinder(t_vec3 center, t_vec3 axis);
-t_object	*init_cylinder_obj(t_cylinder_conf *cylinder);
+t_object		*init_cylinder_obj(t_cylinder_conf *cylinder);
 t_sphere_conf	*init_sphere(t_vec3 center);
-t_object	*init_sphere_obj(t_sphere_conf *sphere);
-t_plane_conf		*init_plane(t_vec3 point, t_vec3 plane_n);
-t_object	*init_plane_obj(t_plane_conf *plane);
+t_object		*init_sphere_obj(t_sphere_conf *sphere);
+t_plane_conf	*init_plane(t_vec3 point, t_vec3 plane_n);
+t_object		*init_plane_obj(t_plane_conf *plane);
 //utils
-t_vec3		caluc_ray(t_vec3 screen, t_camera_conf camera);
-t_vec3		caluc_screen_point(int x, int y);
-void		my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
-int			convert_color_to_hex(t_color color);
+t_vec3			caluc_ray(t_vec3 screen, t_camera_conf camera);
+t_vec3			caluc_screen_point(int x, int y);
+void			my_mlx_pixel_put(t_mlx_data *data, int x, int y, int color);
+int				convert_color_to_hex(t_color color);
 // phong_shading
-void		make_intersection(t_vec3 *intersection, double t, t_scene scene);
-void		phong_shading(t_scene *scene, t_object obj);
-double		diffuse(t_scene scene, double ratio);
-double		ambient(t_ambient_conf ambient);
-double		specular(t_scene scene, double ratio);
-t_color		caluc_color(t_scene scene, t_object obj);
+void			make_intersection(t_vec3 *intersection, double t, \
+									t_scene scene);
+void			phong_shading(t_scene *scene, t_object obj);
+double			diffuse(t_scene scene, double ratio);
+double			ambient(t_ambient_conf ambient);
+double			specular(t_scene scene, double ratio);
+t_color			caluc_color(t_scene scene, t_object obj);
 // shadow
-bool		is_blocked_light(t_scene scene, double t);
-bool		is_shadow(t_scene scene);
-bool		shadow_sphere(t_scene scene, t_sphere_conf sphere);
-bool		shadow_plane(t_scene scene, t_plane_conf plane);
-bool		shadow_cylinder(t_scene scene, t_cylinder_conf cylinder);
+bool			is_blocked_light(t_scene scene, double t);
+bool			is_shadow(t_scene scene);
+bool			shadow_sphere(t_scene scene, t_sphere_conf sphere);
+bool			shadow_plane(t_scene scene, t_plane_conf plane);
+bool			shadow_cylinder(t_scene scene, t_cylinder_conf cylinder);
 
 #endif

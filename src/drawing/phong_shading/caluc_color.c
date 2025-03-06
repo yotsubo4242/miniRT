@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:38:36 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/06 14:32:01 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:50:45 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_color	caluc_color(t_scene scene, t_object obj)
 	t_color	color;
 
 	if (obj.type == OBJ_SPHERE)
-		color = caluc_color_sphere(scene, (t_sphere_conf*)(obj.conf));
+		color = caluc_color_sphere(scene, (t_sphere_conf *)(obj.conf));
 	else if (obj.type == OBJ_PLANE)
 		color = caluc_color_plane(scene, (t_plane_conf *)(obj.conf));
 	else if (obj.type == OBJ_CYLINDER)
