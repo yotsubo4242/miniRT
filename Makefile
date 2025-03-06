@@ -28,7 +28,7 @@ all : $(NAME)
 debug: CFLAGS+=$(DEBUG_FLAGS)
 debug: $(NAME)
 
-$(NAME) : $(SHARE) $(LIBFT) $(LIBMLX) $(OBJ)
+$(NAME) : $(LIBFT) $(LIBMLX) $(SHARE) $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
