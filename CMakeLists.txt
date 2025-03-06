@@ -7,12 +7,10 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 
 enable_testing()
 
-add_subdirectory(libft)
-add_subdirectory(tests)
 
 include(ExternalProject)
 ExternalProject_Add(
-        minilibx
+        minilibx-linux
         GIT_REPOSITORY https://github.com/42Paris/minilibx-linux.git
         GIT_TAG master
         PREFIX ${CMAKE_BINARY_DIR}/minilibx-linux
@@ -23,7 +21,7 @@ ExternalProject_Add(
         INSTALL_COMMAND ""
         BUILD_BYPRODUCTS ${CMAKE_BINARY_DIR}/minilibx-linux/src/minilibx/libmlx.a
 )
-ExternalProject_Get_Property(minilibx SOURCE_DIR)
+ExternalProject_Get_Property(minilibx-linux SOURCE_DIR)
 set(MLX_SOURCE_DIR ${SOURCE_DIR})
 
 add_library(mlx STATIC IMPORTED)
@@ -47,7 +45,11 @@ file(GLOB_RECURSE SOURCE_FILES
 )
 
 add_executable(miniRT ${SOURCE_FILES})
-add_dependencies(miniRT minilibx)
+add_dependencies(miniRT minilibx-linux)
+
+set(MLX_SOURCE_DIR ${MLX_SOURCE_DIR} PARENT_SCOPE)
+add_subdirectory(libft)
+add_subdirectory(tests)
 
 target_link_directories(miniRT PUBLIC /usr/X11/lib)
 target_link_libraries(miniRT ft mlx m X11 Xext)

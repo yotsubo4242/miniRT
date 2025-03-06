@@ -18,7 +18,6 @@ include_directories(${CMAKE_SOURCE_DIR}/src/list)
 include_directories(${CMAKE_SOURCE_DIR}/src/share/include)
 include_directories(${CMAKE_SOURCE_DIR}/src/scene/get_next_line)
 include_directories(${CMAKE_SOURCE_DIR}/src/scene)
-include_directories(${CMAKE_SOURCE_DIR}/minilibx-linux)
 include_directories(${MLX_SOURCE_DIR})
 
 # build scene library
