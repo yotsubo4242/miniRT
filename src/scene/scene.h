@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/06 18:55:32 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:37:00 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,13 @@ typedef struct s_scene_count
 	unsigned int	light;
 }	t_scene_count;
 
+typedef struct s_radiance
+{
+	double	r_radiance;
+	double	g_radiance;
+	double	b_radiance;
+}	t_radiance;
+
 typedef struct s_scene
 {
 	t_vec3			ray;
@@ -159,7 +166,7 @@ typedef struct s_scene
 	t_vec3			inter;
 	double			min_t;
 	t_color			cur_color;
-	double			r;
+	t_radiance		r;
 	double			tmp_t;
 	t_color			tmp_color;
 	t_vec3			shadow_ray;
@@ -250,9 +257,9 @@ int				convert_color_to_hex(t_color color);
 void			make_intersection(t_vec3 *intersection, double t, \
 									t_scene scene);
 void			phong_shading(t_scene *scene, t_object obj);
-double			diffuse(t_scene scene, double ratio);
-double			ambient(t_ambient_conf ambient);
-double			specular(t_scene scene, double ratio);
+t_radiance		diffuse(t_scene scene, double ratio);
+t_radiance		ambient(t_ambient_conf ambient);
+t_radiance		specular(t_scene scene, double ratio);
 t_color			caluc_color(t_scene scene, t_object obj);
 // shadow
 bool			is_blocked_light(t_scene scene, double t);
