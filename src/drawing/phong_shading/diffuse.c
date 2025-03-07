@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 12:59:21 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/06 14:32:19 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:46:33 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	make_intersection(t_vec3 *intersection, double t, t_scene scene)
 	intersection->z = scene.camera.position.z + t * scene.ray.z;
 }
 
-double	diffuse(t_scene scene, double ratio)
+double	diffuse(t_scene scene, double brightness)
 {
 	t_vec3	l;
 	double	nl;
@@ -29,7 +29,7 @@ double	diffuse(t_scene scene, double ratio)
 	nl = vec_dot(scene.n, l);
 	if (nl < 0)
 		nl = vec_dot(vec_rev(scene.n), l);
-	r_d = nl * KD * ratio;
+	r_d = nl * KD * brightness;
 	if (r_d < 0)
 		r_d = 0;
 	return (r_d);

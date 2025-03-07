@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:12:42 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/07 14:43:37 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:46:44 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	phong_shading(t_scene *scene, t_object obj)
 		scene->r = r_a;
 	else
 	{
-		r_d = diffuse(*scene, 1.0);
-		r_s = specular(*scene, 1.0);
+		r_d = diffuse(*scene, scene->light.brightness);
+		r_s = specular(*scene, scene->light.brightness);
 		scene->r = combine_radiance(r_a, r_d, r_s);
 	}
 	scene->tmp_color = caluc_color(*scene, obj);

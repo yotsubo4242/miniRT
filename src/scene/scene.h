@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/07 14:37:00 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:47:06 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,9 +257,9 @@ int				convert_color_to_hex(t_color color);
 void			make_intersection(t_vec3 *intersection, double t, \
 									t_scene scene);
 void			phong_shading(t_scene *scene, t_object obj);
-t_radiance		diffuse(t_scene scene, double ratio);
+t_radiance		diffuse(t_scene scene, double brightness);
 t_radiance		ambient(t_ambient_conf ambient);
-t_radiance		specular(t_scene scene, double ratio);
+t_radiance		specular(t_scene scene, double brightness);
 t_color			caluc_color(t_scene scene, t_object obj);
 // shadow
 bool			is_blocked_light(t_scene scene, double t);
