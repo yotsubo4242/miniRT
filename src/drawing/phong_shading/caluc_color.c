@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:38:36 by yuotsubo          #+#    #+#             */
-/*   Updated: 2025/03/06 14:50:45 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:01:23 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static t_color	caluc_color_sphere(t_scene scene, t_sphere_conf*sphere)
 {
 	t_color	color;
 
-	color.r = sphere->color.r * scene.r;
-	color.g = sphere->color.g * scene.r;
-	color.b = sphere->color.b * scene.r;
+	color.r = sphere->color.r * scene.r.r_radiance;
+	color.g = sphere->color.g * scene.r.g_radiance;
+	color.b = sphere->color.b * scene.r.b_radiance;
 	return (color);
 }
 
@@ -26,9 +26,9 @@ static t_color	caluc_color_plane(t_scene scene, t_plane_conf *plane)
 {
 	t_color	color;
 
-	color.r = plane->color.r * scene.r;
-	color.g = plane->color.g * scene.r;
-	color.b = plane->color.b * scene.r;
+	color.r = plane->color.r * scene.r.r_radiance;
+	color.g = plane->color.g * scene.r.g_radiance;
+	color.b = plane->color.b * scene.r.b_radiance;
 	return (color);
 }
 
@@ -36,9 +36,9 @@ static t_color	caluc_color_cylinder(t_scene scene, t_cylinder_conf *cylinder)
 {
 	t_color	color;
 
-	color.r = cylinder->color.r * scene.r;
-	color.g = cylinder->color.g * scene.r;
-	color.b = cylinder->color.b * scene.r;
+	color.r = cylinder->color.r * scene.r.r_radiance;
+	color.g = cylinder->color.g * scene.r.g_radiance;
+	color.b = cylinder->color.b * scene.r.b_radiance;
 	return (color);
 }
 
