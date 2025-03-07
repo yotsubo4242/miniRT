@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:25:11 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/06 13:39:57 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:37:03 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static bool	is_rt_file(char *filename)
 	return (ft_strcmp(filename + len - 3, ".rt") == 0);
 }
 
-static int	my_exit(int keycode, void *param)
+static int	key_pushed(int keycode, void *param)
 {
 	t_scene	*scene;
 
@@ -32,6 +32,15 @@ static int	my_exit(int keycode, void *param)
 		exit(0);
 	}
 	return (0);
+}
+
+static int	cross_clicked(void *param)
+{
+	t_scene	*scene;
+
+	scene = (t_scene *)param;
+	free_config(scene);
+	exit(0);
 }
 
 int	main(int argc, char **argv)
@@ -54,6 +63,7 @@ int	main(int argc, char **argv)
 	draw_image(mlx_data, *scene);
 	mlx_put_image_to_window(mlx_data->mlx_ptr, mlx_data->win_ptr, \
 							mlx_data->img, 0, 0);
-	mlx_key_hook(mlx_data->win_ptr, my_exit, scene);
+	mlx_key_hook(mlx_data->win_ptr, key_pushed, scene);
+	mlx_hook(mlx_data->win_ptr, 17, 1L << 17, cross_clicked, scene);
 	mlx_loop(mlx_data->mlx_ptr);
 }
