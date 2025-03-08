@@ -6,7 +6,7 @@
 /*   By: yuotsubo <yuotsubo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:23:00 by tkitahar          #+#    #+#             */
-/*   Updated: 2025/03/07 14:47:06 by yuotsubo         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:16:44 by yuotsubo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef double	t_brightness;
 # define WIDTH 1000
 # define HEIGHT 1000
 # define EXIT_PARSE_ERROR 2
-# define KA 0.1
-# define KD 0.69
-# define KS 0.3
+# define KA 1.0
+# define KD 0.5
+# define KS 0.25
 # define GLOSS 8
 # define EPSILON 0.03
 # define PI 3.1415926535
