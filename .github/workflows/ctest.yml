@@ -1,0 +1,36 @@
+---
+name: CTest
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - dev
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - "tests/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "libft/**"
+      - "src/**"
+      - "include/**"
+      - "tests/**"
+      - "CMakeLists.txt"
+      - ".github/workflows/**"
+jobs:
+  ctest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo apt-get install cmake libx11-dev libxext-dev libbsd-dev
+      - name: Cmake, make makefile in build
+        run: cmake -S . -B build 
+      - name: Build, run make command in build dir
+        run: cmake --build build
+      - name: Test, run CTest
+        run: ctest --test-dir build
